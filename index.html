@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <h1>Wait, redirecting</h1>
+<script>
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+sleep(5000)
+window.location = "https://oceanian-ribbon.000webhostapp.com/quiz/quiz.php";
+</script>
+</html>
