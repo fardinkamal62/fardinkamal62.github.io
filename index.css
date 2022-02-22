@@ -1,0 +1,41 @@
+.center{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.bg{
+    
+	background-repeat: no-repeat;
+	background-position: center;
+    background-attachment: fixed;
+    background-color: #FDFBEF;
+    background-size: cover;
+    background-color: black;
+
+}
+.letter{
+	text-align: center;
+    font-family: monospace;
+    color: white;
+    font-size: 300%;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none; 
+}
+hr{
+	height: 10px;
+	background-color: white;
+}
+.trans{
+	    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
