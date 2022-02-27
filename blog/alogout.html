@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css">
+    <title>Auto Logout</title>
+</head>
+<body>
+    <h2 style="text-align: center;">Auto Log out</h2>
+    
+    <p>My 'Iskul' project is almost a year old. It was done a long ago; some fixes needed to be done. One of them were: if someone logs in to account, auto log out from previous device; as I disabled multi-device functionality.</p>
+    <p>Until now one account can be signed in to more than one device. Which threw errors because of the <i>Keep Me Logged In</i> mechanism.</p>
+    <p>User info comes from database. For that error it shows <i>Logged In User Not Found</i>. Means it couldn't fetch the user data, the return value was just <i>empty</i>.</p>
+    <p>That's what I used to fix this. I checked the return value. If it was empty, expire the cookie. </p>
+    <br>
+    <p >The code:</p>
+    <pre>
+    <code>if(empty($row['name'])){header("Location: logout.php");};</code>
+    </pre>
+    
+    <p>I know I know I could've just iterate through database for cookie value but isn't it hassle free one-liner?</p>
+</body>
+</html>
