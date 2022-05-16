@@ -1,17 +1,278 @@
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" type="text/css" href="index.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="index.css">
-<head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fardin Kamal</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <!--  -->
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!--  -->
+    <!-- bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+      integrity="sha384-eoTu3+HydHRBIjnCVwsFyCpUDZHZSFKEJD0mc3ZqSBSb6YhZzRHeiomAUWCstIWo"
+      crossorigin="anonymous"
+    />
+    <!--  -->
+  </head>
+  <body style="font-family: 'Quicksand', sans-serif">
+    <!-- navbar -->
+    <navbar
+      id="navbar"
+      class="navbar navbar-expand-md bg-black navbar-dark py-2 sticky-top"
+    >
+      <div class="container">
+        <a href="#" class="navbar-brand" style="font-size: 40px">{~,~}</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbutton"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbutton">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#project" class="nav-link">Project</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a href="/blog.html" class="nav-link">Blog</a>
+            </li> -->
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </navbar>
+    <!--  -->
 
-	<title>Fardin Kamal</title>
+    <!-- intro -->
+    <section class="bg-black text-light p-5 text-center">
+      <div class="container">
+        <div class="d-sm-flex">
+          <div class="mx-4 my-auto">
+            <span class="h1"><b> Fardin Kamal</b></span>
+            <p class="">BackEnd Web Developer</p>
+          </div>
 
-</head>
-<body class="bg" class="center">
-	<h1 class="center letter trans" style="font-size: 800%"><hr>{~,~}<hr></h1>
-	<a href="https://acting-tastes.000webhostapp.com/iskul/" style="color:white">Iskul</a>
-	<br>
-	<a href="blog/" style="color: white;">Blog</a>
-</body>
+          <img
+            src="https://avatars.githubusercontent.com/u/70953546?v=4"
+            class="img-fluid d-sm-block d-none rounded-circle"
+            alt=""
+            style="width: 50%; height: auto"
+          />
+        </div>
+      </div>
+    </section>
+    <!--  -->
+    <!-- about me -->
+    <section id="about" class="my-4">
+      <div class="container">
+        <p class="lead text-center">
+          Self taught MEN(MongoDB, Express, Node) stack developer.
+          <br />
+          From the passion of brainstorming and habit of digging deep, I started
+          programming. <br />
+          Web development always fascinated me. After completing basic HTML &
+          CSS, I started PHP and I continued with BackEnd Web development.
+          <br />
+          Did some small project with PHP & MySQL for myself and for friends.
+          <br />
+          Besides programming, I have experience using Linux. I participated on
+          National CyberDrill-2020 with my team EliteSploit where I solved
+          Digital Forensics and Cryptography challenges.
+        </p>
+      </div>
+    </section>
+    <!--  -->
+
+    <!-- skills -->
+    <section id="skills" class="bg-black text-light my-4">
+      <div class="container">
+        <h1 class="lead text-center py-3" style="font-size: 30px">Skills</h1>
+        <div class="py-2">
+          <p><b>Language:</b> Javascript, ECMAScript, PHP, Python</p>
+          <p><b>Framework:</b> NodeJS, ExpressJS, Bootstrap</p>
+          <p><b>Database:</b> MySQL, MariaDB, MongoDB</p>
+          <p><b>Operating System:</b> Windows, GNU/Linux</p>
+          <p><b>Other:</b> Adobe Photoshop, Adobe Lightroom, Cryptography</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- project -->
+    <section id="project" class="my-4">
+      <div class="container">
+        <h1 class="lead text-center py-2" style="font-size: 30px">Project</h1>
+        <div class="row text-center">
+          <div class="col-md">
+            <div class="bg-black text-light">
+              <div class="card-body text-center">
+                <div class="card-title h1 m-3 pt-4">Iskul</div>
+                <div class="card-text m-3">
+                  A replica of my college's class room portal where schools can
+                  take classes, exams. If you're familiar with online.udvash.com
+                  or edulive.edu-smart.info, this is exactly like them. I wrote
+                  it from scratch using PHP on server side and mysql database.
+                </div>
+                <a
+                  href="https://github.com/fardinkamal62/iskul"
+                  target="_blank"
+                  class="btn btn-light my-4"
+                  >Code</a
+                >
+                <a
+                  href="https://acting-tastes.000webhostapp.com/iskul/"
+                  target="_blank"
+                  class="btn btn-light my-4"
+                  >Live</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="bg-black text-light">
+              <div class="card-body text-center">
+                <div class="card-title h1 m-3 pt-4">Grab On Behind</div>
+                <div class="card-text m-3">
+                  Multiplayer word chain game. Player will say a programming
+                  language's name then other player will say another starting
+                  with previous last letter. Currently it's non persistent,
+                  input is stored until Glitch is runningMultiplayer
+                </div>
+                <a
+                  href="https://github.com/fardinkamal62/Grab-On-Behind"
+                  target="_blank"
+                  class="btn btn-light my-4"
+                  >Code</a
+                >
+                <a
+                  href="https://grab-on-behind.glitch.me/"
+                  target="_blank"
+                  class="btn btn-light my-4"
+                  >Live</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="bg-black text-light">
+              <div class="card-body text-center">
+                <div class="card-title h1 m-3 pt-4">KOmegle</div>
+                <div class="card-text m-3">Omegle clone with NodeJS</div>
+                <a
+                  href="https://github.com/fardinkamal62/KOmegle"
+                  target="_blank"
+                  class="btn btn-light my-4"
+                  >Code</a
+                >
+                <a
+                  href="https://komegle.glitch.me/"
+                  class="btn btn-light my-4"
+                  target="_blank"
+                  >Live</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--  -->
+    <!--  -->
+    <a
+      href="#"
+      class="position-sticky bottom-0 start-0 bi bi-arrow-up-circle-fill p-2 h1"
+    ></a>
+    <!--  -->
+    <!-- footer  -->
+    <footer class="bg-black lead text-center p-2" id="contact">
+      <!-- <h1>Find me in the stars</h1> -->
+      <div class="m-5 h1">
+        <!-- linkedin -->
+        <a
+          style="color: white"
+          type="button"
+          class="mx-2 bi bi-linkedin"
+          href="https://www.linkedin.com/in/fardin-kamal-565216217/"
+          target="_blank"
+        ></a>
+        <!--  -->
+        <!-- twitter -->
+        <a
+          style="color: white"
+          type="button"
+          class="mx-2 bi bi-twitter"
+          href="https://twitter.com/fardinkamal62"
+          target="_blank"
+        ></a>
+        <!--  -->
+        <!-- mail -->
+        <a
+          style="color: white"
+          type="button"
+          class="mx-2 bi bi-envelope"
+          href="mailto:fardinkamal62@protonmail.ch"
+          target="_blank"
+        ></a>
+        <!--  -->
+        <!-- git -->
+        <a
+          style="color: white"
+          type="button"
+          class="mx-2 bi bi-github"
+          href="https://github.com/fardinkamal62"
+          target="_blank"
+        ></a>
+        <!--  -->
+      </div>
+    </footer>
+
+    <!-- go to top  -->
+
+    <!--  -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://platform.linkedin.com/badges/js/profile.js"
+      async
+      defer
+      type="text/javascript"
+    ></script>
+    <script>
+      // close on click
+      const navLinks = document.querySelectorAll('.nav-item');
+      const menuToggle = document.getElementById('navbutton');
+      const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+      navLinks.forEach((l) => {
+        l.addEventListener('click', () => {
+          bsCollapse.toggle();
+        });
+      });
+      //
+    </script>
+  </body>
 </html>
