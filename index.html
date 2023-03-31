@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>{~,~} Fardin Kamal</title>
+    <title>{~,~} | Fardin Kamal</title>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -12,6 +12,11 @@
             rel="stylesheet"
     />
     <!--  -->
+    <!--bootstrap bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+            integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+            crossorigin="anonymous"></script>
+    <!---->
     <!-- bootstrap -->
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -20,51 +25,58 @@
             crossorigin="anonymous"
     />
     <!--  -->
-    <!-- bootstrap icons -->
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
-            integrity="sha384-eoTu3+HydHRBIjnCVwsFyCpUDZHZSFKEJD0mc3ZqSBSb6YhZzRHeiomAUWCstIWo"
-            crossorigin="anonymous"
-    />
-    <!--  -->
+    <!--  font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!--    -->
 </head>
 <body style="font-family: 'Quicksand', sans-serif;">
+<style>
+    .nav-pills {
+        --bs-nav-pills-link-active-bg: black;
+        --bs-nav-pills-link-active-color: white;
+    }
+
+    .nav {
+        --bs-nav-link-color: black;
+        --bs-nav-link-hover-color: #626262;
+    }
+
+    .goup:hover {
+        color: black;
+    }
+</style>
 <!-- navbar -->
-<navbar
-        id="navbar"
-        class="navbar navbar-expand-md bg-black navbar-dark py-2 sticky-top"
->
+<nav class="navbar navbar-expand-md bg-black navbar-dark sticky-top">
     <div class="container">
         <a href="#" class="navbar-brand" style="font-size: 40px">{~,~}</a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbutton"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbutton">
-            <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                 <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
+                    <a class="nav-link" aria-current="page" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
+                    <a class="nav-link" aria-current="page" href="#skills">Skills</a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a href="/blog.html" class="nav-link">Blog</a>
-                </li> -->
                 <li class="nav-item">
-                    <a href="#project" class="nav-link">Projects</a>
+                    <a class="nav-link" href="#experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#project">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #d35555; text-decoration: dotted">Somethings's Cooking 😉</a>
                 </li>
             </ul>
         </div>
     </div>
-</navbar>
-<!--  -->
-
+</nav>
+<!-- navbar end -->
 <!-- intro -->
 <section class="bg-black text-light p-5 text-center">
     <div class="container">
@@ -72,14 +84,15 @@
             <div class="mx-auto my-auto">
                 <span class="h1"><b> Fardin Kamal</b></span>
                 <p>
-                    Software Developer Intern at <a href="https://deepthought.education/" target="_blank"> DeepThought</a>
+                    Software Developer Intern at <a href="https://deepthought.education/" target="_blank">
+                    DeepThought</a>
                 </p>
                 <div class="m-5 h3">
                     <!-- linkedin -->
                     <a
                             style="color: white"
                             type="button"
-                            class="mx-2 bi bi-linkedin"
+                            class="fa-linkedin fa-brands mx-1 fa-lg"
                             href="https://www.linkedin.com/in/fardin-kamal-565216217/"
                             target="_blank"
                     ></a>
@@ -88,16 +101,16 @@
                     <a
                             style="color: white"
                             type="button"
-                            class="mx-2 bi bi-envelope"
+                            class="fa fa-envelope-square mx-1 fa-lg"
                             href="mailto:fardinkamal62@protonmail.ch"
                             target="_blank"
                     ></a>
                     <!--  -->
                     <!-- git -->
                     <a
-                            style="color: white"
+                            style="color: white; text-decoration: auto"
                             type="button"
-                            class="mx-2 bi bi-github"
+                            class="fa-brands fa-github mx-1 fa-lg"
                             href="https://github.com/fardinkamal62"
                             target="_blank"
                     ></a>
@@ -122,22 +135,28 @@
         <h1 class="lead text-center py-3 fw-bold" style="font-size: 30px">About</h1>
         <p class="text-center lead fs-4">"Saw a problem, came up with a solution"</p>
         <p class="">
-            Self taught MERN stack developer.
+            Self taught MERN stack developer & going beyond 🚀
             <br/>
-            Software Developer intern before Bachelor.
+            Software Developer intern before starting Bachelor's 🤙
             <br/>
             <br/>
-            Programming always fascinated me. After completing basic HTML &
-            CSS, I started PHP and I continued with BackEnd Web development.
+            I have always been fascinated by programming. Once I completed the basics of HTML and CSS, I began learning
+            PHP and continued to specialize in backend web development
             <br/>
-            I always try to solve problems, even I have to learn something new. Completed my cousin's assignment 'ATM
-            Machine with Java' on 2 days while she was studying CSE 3rd year and I was on 12th grade with no idea of
-            Java.
+            <br/>
+            I am always willing to tackle challenges and learn new things in the process. For instance, when my cousin,
+            who was in her 3rd year of computer science engineering, needed help with her Java assignment for an ATM
+            machine, I took it upon myself to complete it within two days, even though I was only in 12th grade and had
+            no prior experience with Java
+            <br/>
             <br/>
             Did some small project with PHP & MySQL for myself and for friends. Big projects like student portal, Omegle
-            clone, multiplayer guessing game.
+            clone, multiplayer guessing game, student portal with PHP & MySQL as well as with MERN stack
             <br/>
-            Community projects like Fedora MiMe for Fedora Linux.
+            <br/>
+            I try to give back to open source community as I'm a big fan of open source. So I've developed a Python
+            script
+            that solves one specific major drawback for Fedora Linux, Fedora MiMe
             <br/>
             <br/>
             Besides programming, I have experience using Linux, BASH. I participated on
@@ -156,8 +175,9 @@
     <div class="container">
         <h1 class="lead text-center py-3 fw-bold" style="font-size: 30px">Skills</h1>
         <div class="py-2">
-            <p><b class="blockquote">Language:</b> Javascript, Java, PHP, Python</p>
-            <p><b class="blockquote">Framework:</b> React, Node.JS, ExpressJS, Bootstrap</p>
+            <p><b class="blockquote">Language:</b> Javascript, Java, PHP,
+                Python</p>
+            <p><b class="blockquote">Framework:</b> React, React Native (Expo), Node.JS, ExpressJS, Bootstrap</p>
             <p><b class="blockquote">Database:</b> MySQL, MongoDB</p>
             <p><b class="blockquote">Operating System:</b> Windows, GNU/Linux</p>
             <p><b class="blockquote">Other:</b> Adobe Photoshop, Adobe Lightroom, Cisco Packet Tracer, Cryptography</p>
@@ -170,58 +190,166 @@
 <section id="experience" class="">
     <div class="container">
         <h1 class="lead text-center fw-bold" style="font-size: 30px">Experience</h1>
+        <br>
+        <!--tabs-->
+        <div class="d-flex justify-content-center">
+            <ul class="nav nav-pills nav-fill w-50 border rounded-3">
+                <li class="nav-item">
+                    <button class="nav-link active" id="work-tab" data-bs-toggle="tab" data-bs-target="#work"
+                            type="button" role="tab" aria-controls="work" aria-selected="true">Work Experience
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="tools-tab" data-bs-toggle="tab" data-bs-target="#tools"
+                            type="button" role="tab" aria-controls="tools" aria-selected="false">Tools Experience
+                    </button>
+            </ul>
+        </div>
+        <!--tabs end-->
         <!-- Experience cards -->
-        <div class="list-group my-5">
-            <div class="text-wrap list-group-item">
-                <h1 class="lead bi-dot py-2">Software Developer Intern | DeepThought Growth Management System</h1>
-                <p>November 2022 - Present</p>
-                <br>
-                <div>
-                    <p><b>Contribution:</b></p>
-                    <ul>- <b>DTthon:</b> Worked on implementing features such as: duplication of course, project, selection; back-end bug fix.</ul>
+        <div class="tab-content" id="content">
+            <div id="work" class="tab-pane fade show active">
+                <div class="list-group my-5">
+                    <div class="text-wrap list-group-item">
+                        <h1 class="lead bi-dot py-2">Software Developer Intern | <a
+                                href="https://deepthought.education/"
+                                target="_blank">DeepThought Growth
+                            Management System</a></h1>
+                        <p>November 2022 - Present</p>
+                        <br>
+                        <div>
+                            <p><b>Contribution:</b></p>
+                            <ul>- <b>DTthon:</b> Worked on implementing features such as: duplication of course,
+                                project,
+                                selection; back-end bug fix
+                            </ul>
 
-                    <ul>- <b>John Dewey Peer Learning System (JD-PLS):</b> Peer Learning System where students can get feedback & asses other students. I am the product manager. Developed 'Reflective Comment Section' for JD-PLS.
-                    </ul>
+                            <ul>- <b>John Dewey Peer Learning System (JD-PLS):</b> Peer Learning System where students
+                                can
+                                get
+                                feedback & asses other students. I was the product manager. Developed the base &
+                                'Reflective
+                                Comment Section' for JD-PLS
+                            </ul>
 
-                    <ul>- <b>Observation Panel:</b> Changed whole system to implement multiple videos on observation panel.</ul>
-                    <p><b>Mentor:</b> Currently mentoring one person to become better backend developer and get used to our platform.</p>
-                    <p><b>Leadership:</b> Was MicroLead of Center of Excellence (CoE) Lab for 2 weeks then moved to Rigor Lab as team lead.</p>
-                    <p><b>Others:</b>
-                        <ul>- Active participant of Socratic Dialogue questioning & Leadership Development Initiative (LDI) event</ul>
-                        <ul>- Taking workshop: took at-least one workshop every week from start of 2023</ul>
-                    </p>
+                            <ul>- <b>Observation Panel:</b> Changed whole back-end to enable more features</ul>
+                            <ul>- <b>Builders: </b>Created Rigor & Maturity builder popup, developed Maturity builder
+                                back-end,
+                                changed both front & back end structure of Rigor builder to scale
+                            </ul>
+                            <br>
+                            <ul><p>I've also worked for SuP(Our client company; a nature conscious startup) on their new
+                                back-end</p>
+                                <ul><p>- Bug fixes on admin panel, authentication</p></ul>
+                                <ul><p>- Added features: wishlist, refer & earn</p></ul>
+                            </ul>
+                            <br>
+                            <p><b>Mentor:</b> Mentored one person to become better back-end developer and get used to
+                                our
+                                platform</p>
+                            <p><b>Leadership:</b> Was MicroLead of Center of Excellence (CoE) Lab for 2 weeks then moved
+                                to
+                                Rigor Lab as team lead.</p>
+                            <p><b>Others:</b>
+                            <ul>- Active participant of Socratic Dialogue questioning & Leadership Development
+                                Initiative
+                                (LDI)
+                                event
+                            </ul>
+                            <ul>- Taking workshop: took at-least one workshop every week from start of 2023 for a month
+                                about
+                                topics such as: intro to Linux, intro to auth, JWT-Token based auth, HTTP caching, PWA
+                                etc.
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="list-group my-5">
+                    <div class="text-wrap list-group-item">
+                        <h1 class="lead bi-dot py-2">Software Developer Intern | <a href="https://agilerecrui.tech/"
+                                                                                    target="_blank">Agile RecruiTech
+                            LLP</a>
+                        </h1>
+                        <p>June 2022 - October 2022</p>
+                        <br>
+                        <p>Sister concern of DeepThought EduTech Ventures. Working on projects of DeepThought EduTech
+                            Ventures.
+                            Responsible for Node.JS development, product research and connected work.</p>
+                        <div>
+                            <p><b>Type:</b> BackEnd</p>
+
+                            <p><b>Contribution:</b></p>
+                            <ul>- <b>DeepThought Marketplace:</b> DT ecosystem Marketplace from scratch with virtual
+                                currency
+                                system as
+                                well as sub-market facility
+                            </ul>
+
+                            <ul>- <b>DeepThought Profile Page:</b> DT Student & Parents account profile page. Worked on
+                                existing
+                                Profile
+                                Page project to bug fix & add small improvements
+                            </ul>
+
+                            <ul>- <b>DeepThought CPaaS:</b> Communication Platform as a Service; used to communicate
+                                outside
+                                of
+                                DT
+                                ecosystem. Can be used to send email/SMS/WhatsApp messages. Actively used by DeepThought
+                                DTThon
+                                project to send emails to applicants.
+                            </ul>
+                            <p><b>Mentor:</b> Mentored one person to become better backend developer and get used to our
+                                codebase.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--  -->
-        <div class="list-group my-5">
-            <div class="text-wrap list-group-item">
-                <h1 class="lead bi-dot py-2">Software Developer Intern | Agile RecruiTech LLP</h1>
-                <p>June 2022 - October 2022</p>
-                <br>
-                <p>Sister concern of DeepThought EduTech Ventures. Working on projects of DeepThought EduTech Ventures.
-                    Responsible for Node.JS development, product research and connected work.</p>
-                <div>
-                    <p><b>Type:</b> BackEnd</p>
-
-                    <p><b>Contribution:</b></p>
-                    <ul>- <b>DeepThought Marketplace:</b> DT ecosystem Marketplace from scratch with virtual currency
-                        system as
-                        well as sub-market facility
-                    </ul>
-
-                    <ul>- <b>DeepThought Profile Page:</b> DT Student & Parents account profile page. Worked on existing
-                        Profile
-                        Page project to bug fix & add small improvements
-                    </ul>
-
-                    <ul>- <b>DeepThought CPaaS:</b> Communication Platform as a Service; used to communicate outside of
-                        DT
-                        ecosystem. Can be used to send email/SMS/WhatsApp messages. Actively used by DeepThought DTThon
-                        project to send emails to applicants.
-                    </ul>
-                    <p><b>Mentor:</b> Mentored one person to become better backend developer and get used to our codebase.</p>
-                </div>
+            <div id="tools" class="tab-pane fade">
+                <table class="table table-responsive w-100 m-5 text-center">
+                    <caption>*Has industry experience</caption>
+                    <thead>
+                    <tr>
+                        <th class="dcf-txt-center" scope="col">1+ years</th>
+                        <th class="dcf-txt-center" scope="col">6+ months</th>
+                        <th class="dcf-txt-center" scope="col">I know the basics</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="dcf-txt-center" data-label="1+ years">Javascript*</td>
+                        <td class="dcf-txt-center" data-label="6+ months">React</td>
+                        <td class="dcf-txt-center" data-label="I know the basics">React Native (Expo)</td>
+                    </tr>
+                    <tr>
+                        <td class="dcf-txt-center" data-label="1+ years">Node.JS*</td>
+                        <td class="dcf-txt-center" data-label="6+ months">PHP</td>
+                        <td class="dcf-txt-center" data-label="I know the basics">Java</td>
+                    </tr>
+                    <tr>
+                        <td class="dcf-txt-center" data-label="1+ years">ExpressJS*</td>
+                        <td class="dcf-txt-center" data-label="6+ months"></td>
+                        <td class="dcf-txt-center" data-label="I know the basics">Python</td>
+                    </tr>
+                    <tr>
+                        <td class="dcf-txt-center" data-label="1+ years">MongoDB*</td>
+                        <td class="dcf-txt-center" data-label="6+ months"></td>
+                        <td class="dcf-txt-center" data-label="I know the basics">MySQL</td>
+                    </tr>
+                    <tr>
+                        <td class="dcf-txt-center" data-label="1+ years">GNU/Linux</td>
+                        <td class="dcf-txt-center" data-label="6+ months"></td>
+                        <td class="dcf-txt-center" data-label="I know the basics"></td>
+                    </tr>
+                    <tr>
+                        <td class="dcf-txt-center" data-label="1+ years">Bootstrap*</td>
+                        <td class="dcf-txt-center" data-label="6+ months"></td>
+                        <td class="dcf-txt-center" data-label="I know the basics"></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -236,10 +364,55 @@
             <div class="col-md">
                 <div class="bg-black text-light">
                     <div class="card-body text-center bg-body text-black">
+                        <div class="card-title h1 m-3 pt-4">KOmegle</div>
+                        <div class="row">
+                            <div style="color: #bba515"><i class="fa-brands fa-js fa-2xl m-1"></i><i
+                                    style="color: #3c873a" class="fa-brands fa-node fa-2xl m-1"></i></div>
+                            <div class="m-1">Socket.IO</div>
+                        </div>
+                        <div class="card-text m-3">Omegle clone with NodeJS</div>
+                        <a
+                                href="https://github.com/fardinkamal62/KOmegle"
+                                target="_blank"
+                                class="btn btn-light my-4 border border-dark">
+                            Code <i class="fa fa-code m-1"></i></a>
+                        <a
+                                href="https://komegle.glitch.me/"
+                                class="btn btn-light my-4 border border-dark"
+                                target="_blank">
+                            Live <i class="fa fa-power-off"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="bg-black text-light">
+                    <div class="card-body text-center bg-body text-black">
+                        <div class="card-title h1 m-3 pt-4">Fedora MiMe</div>
+                        <div class="row">
+                            <div style="color: #4B8BBE"><i class="fa fa-brands fa-python fa-2xl"></i></div>
+                        </div>
+                        <div class="card-text m-3">A Python script to measure Fedora mirror speed</div>
+                        <div class="card-text m-3">Fedora had a big problem with autoselecting best mirror. DNF's <i>fastestmirror</i>
+                            module pings all the servers in the list it has and takes the fastest ping time as the <i>fastestmirror</i>
+                            and it goes to that one as the server. But this script measures actual download speed.
+                        </div>
+                        <a
+                                href="https://github.com/fardinkamal62/fedora-mirror-measure"
+                                target="_blank"
+                                class="btn btn-light my-4 border border-dark">
+                            Code <i class="fa fa-code m-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-md">
+                <div class="bg-black text-light">
+                    <div class="card-body text-center bg-body text-black">
                         <div class="card-title h1 m-3 pt-4">Iskul</div>
                         <div class="row">
-                            <div class="bi bi-dot" style="color: #787cb5">PHP</div>
-                            <div class="bi bi-dot" style="color: #00758f">
+                            <div style="color: #787cb5"><i class="fa fa-php fa-brands fa-2xl"></i></div>
+                            <div class="" style="color: #00758f">
                                 My<span style="color: #f29111">SQL</span>
                             </div>
                         </div>
@@ -253,13 +426,13 @@
                                 href="https://github.com/fardinkamal62/iskul"
                                 target="_blank"
                                 class="btn btn-light my-4 border border-dark">
-                            Code <i class="bi bi-code-square m-1"></i></a>
+                            Code <i class="fa fa-code m-1"></i></a>
 
                         <a
                                 href="https://acting-tastes.000webhostapp.com/iskul/"
                                 target="_blank"
                                 class="btn btn-light my-4 border border-dark">
-                            Live <i class="bi bi-power"></i></a>
+                            Live <i class="fa fa-power-off"></i></a>
                     </div>
                 </div>
             </div>
@@ -268,8 +441,8 @@
                     <div class="card-body text-center bg-body text-black">
                         <div class="card-title h1 m-3 pt-4">Grab On Behind</div>
                         <div class="row">
-                            <div class="bi bi-dot" style="color: #bba515">Javascript</div>
-                            <div class="bi bi-dot" style="color: #3c873a">NodeJS</div>
+                            <div style="color: #bba515"><i class="fa-brands fa-js fa-2xl m-1"></i><i
+                                    style="color: #3c873a" class="fa-brands fa-node fa-2xl m-1"></i></div>
                         </div>
                         <div class="card-text m-3">
                             Multiplayer word chain game. Player will say a programming
@@ -280,63 +453,16 @@
                         <a
                                 href="https://github.com/fardinkamal62/Grab-On-Behind"
                                 target="_blank"
-                                class="btn btn-light my-4 border border-dark">Code <i class="bi bi-code-square m-1"></i></a>
+                                class="btn btn-light my-4 border border-dark">Code <i class="fa fa-code m-1"></i></a>
                         <a
                                 href="https://grab-on-behind.glitch.me/"
                                 target="_blank"
-                                class="btn btn-light my-4 border border-dark">Live <i class="bi bi-power"></i>
+                                class="btn btn-light my-4 border border-dark">Live <i class="fa fa-power-off"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row my-5">
-            <div class="col-md">
-                <div class="bg-black text-light">
-                    <div class="card-body text-center bg-body text-black">
-                        <div class="card-title h1 m-3 pt-4">KOmegle</div>
-                        <div class="row">
-                            <div class="bi bi-dot" style="color: #bba515">Javascript</div>
-                            <div class="bi bi-dot" style="color: #3c873a">NodeJS</div>
-                            <div class="bi bi-dot">Socket.IO</div>
-                        </div>
-                        <div class="card-text m-3">Omegle clone with NodeJS</div>
-                        <a
-                                href="https://github.com/fardinkamal62/KOmegle"
-                                target="_blank"
-                                class="btn btn-light my-4 border border-dark">
-                            Code <i class="bi bi-code-square m-1"></i></a>
-                        <a
-                                href="https://komegle.glitch.me/"
-                                class="btn btn-light my-4 border border-dark"
-                                target="_blank">
-                            Live <i class="bi bi-power"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="bg-black text-light">
-                    <div class="card-body text-center bg-body text-black">
-                        <div class="card-title h1 m-3 pt-4">Fedora MiMe</div>
-                        <div class="row">
-                            <div class="bi bi-dot" style="color: #4B8BBE">Py<span style="color: #DFC437">thon</span>
-                            </div>
-                        </div>
-                        <div class="card-text m-3">A Python script to measure Fedora mirror speed</div>
-                        <div class="card-text m-3">Fedora had a big problem with autoselecting best mirror. DNF's <i>fastestmirror</i>
-                            module pings all the servers in the list it has and takes the fastest ping time as the <i>fastestmirror</i>
-                            and it goes to that one as the server. But this script measures actual download speed.
-                        </div>
-                        <a
-                                href="https://github.com/fardinkamal62/fedora-mirror-measure"
-                                target="_blank"
-                                class="btn btn-light my-4 border border-dark">
-                            Code <i class="bi bi-code-square m-1"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 <!--  -->
@@ -349,16 +475,12 @@
 <!-- go to top -->
 <a
         href="#"
-        class="position-sticky bottom-0 start-0 bi bi-arrow-up-circle-fill p-2 h1"
+        class="position-sticky bottom-0 start-0 fa fa-arrow-up p-2 h1 goup rounded-pill bg-light"
+        style="text-decoration: auto;"
 ></a>
 <!--  -->
 
 <!-- script -->
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"
-></script>
 
 <script>
     // close on click
@@ -370,6 +492,10 @@
             bsCollapse.toggle();
         });
     });
+    //
+    // tooltip
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     //
 </script>
 </body>
