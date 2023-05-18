@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>MiMe | Fardin Kamal</title>
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/mime-icon.png?v2">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/mime-icon.png?v2">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/mime-icon.png?v2">
+        <link rel="favicon" href="/assets/mime-icon.png?v2">
+        <!--  -->
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+        <!--  -->
+        <!--bootstrap bundle-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+            integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+            crossorigin="anonymous"></script>
+        <!---->
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+            crossorigin="anonymous" />
+        <!--  -->
+        <!--  font awesome  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!--    -->
+    </head>
+
+    <body style="font-family: 'Quicksand', sans-serif;">
+        <style>
+            .nav-pills {
+                --bs-nav-pills-link-active-bg: black;
+                --bs-nav-pills-link-active-color: white;
+            }
+
+            .nav {
+                --bs-nav-link-color: black;
+                --bs-nav-link-hover-color: #626262;
+            }
+
+            .goup:hover {
+                color: black;
+            }
+        </style>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-md bg-white navbar sticky-top">
+            <div class="container">
+                <a href="#" class="navbar-brand"><img style="width: 20%; height: auto;" src="/assets/mime-icon.png"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#why">Why?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#fast_mirror">Fastestmirror</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar end -->
+        <!-- intro -->
+        <section class="p-5 text-center">
+            <div class="container">
+                <div>
+                    <!-- image -->
+                    <img src="/assets/mime-banner.png" class="align-self-center" alt="fedora-mime-banner"
+                        style="width: 30%; height: auto;" />
+                </div>
+                <div style="margin-top: 80px;">
+                    <p class="lead fw-normal">Mirror Measure software for Fedora Linux</p>
+                </div>
+        </section>
+        <!--  -->
+
+        <section class="py-5" id="why" style="background-color: #51a2da; color: white;"><!--  -->
+            <div class="container">
+                <h1 class="lead text-center py-3 fw-bolder" style="font-size: 30px">Why?</h1>
+                <div>
+                    <p class="lead">I love Fedora.
+                        <br>My only complain was slow mirror speed.<br>
+
+                        Ubuntu has Software Center, Arch has Reflector but Fedora didn't have
+                        anything.
+                    </p>
+                    <br>
+                    <p class="h1">Introducing Fedora MiMe</p>
+                    <p class="lead">A simple Electron app that enables user to measure different mirror speed of Fedora
+                        Linux</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fast_mirror" class="my-5 py-5">
+            <div class="container">
+                <h1 class="lead text-center fw-bold" style="font-size: 30px">Why Not fastestmirror?</h1>
+                <br>
+                <p class="lead">
+                    Good Question<br>
+                    But it sucks<br><br>
+                    <code>...fastestmirror is based on a faulty concept, when it's turned on your dnf pings all the servers in the list it has and takes the fastest ping time as the "fastestmirror" and it goes to that one as the server...</code>
+                    <br><a href="https://forums.fedoraforum.org/showthread.php?328191-Enable-Fastest-Mirror"
+                        target="_blank">From Fedora Forum</a>
+                    <br>
+                    <br>
+                <p class="lead">From my personal experience, I used to get around <b>500 Kb/s</b><br>After measuring
+                    with it
+                    now
+                    I get around <b>5 Mb/s</b></p>
+                <p class="lead">If we look into Ubuntu's Software Center or Arch's Reflector, they all measure download
+                    speed from servers<br>
+                    For some reason Fedora will determine fastest mirror by ping time -_-<br>
+                    This app fixes the issue<br>
+                </p>
+                <br>
+
+                </p>
+            </div>
+
+        </section>
+
+        <!-- go to top -->
+        <a href="#" class="position-sticky bottom-0 start-0 fa fa-arrow-up p-2 h1 goup rounded-pill bg-light"
+            style="text-decoration: auto;"></a>
+        <!--  -->
+
+        <!-- script -->
+
+        <script>
+            // close on click
+            const navLinks = document.querySelectorAll('.nav-item');
+            const menuToggle = document.getElementById('navbutton');
+            const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+            navLinks.forEach((l) => {
+                l.addEventListener('click', () => {
+                    bsCollapse.toggle();
+                });
+            });
+            //
+            // tooltip
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    //
+        </script>
+    </body>
+
+</html>
