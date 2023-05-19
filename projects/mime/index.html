@@ -59,12 +59,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav" style="margin-left: 40%;">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#"><img src="/assets/mime-icon.png"
-                                    alt="mime-icon" style="width: 20%; height: auto;"></a>
-                        </li>
-                    </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#gallery">Gallery</a>
@@ -76,7 +70,7 @@
                             <a class="nav-link" href="#fast_mirror">Fastestmirror</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#downloads">Test Now!</a>
+                            <a class="nav-link" href="#downloads">Measure Now!</a>
                         </li>
                     </ul>
                 </div>
@@ -92,7 +86,7 @@
                         style="width: 30%; height: auto;" />
                 </div>
                 <div style="margin-top: 80px;">
-                    <p class="lead fw-normal">Mirror Measure software for Fedora Linux</p>
+                    <p class="lead fw-normal">Mirror Measure app for Fedora Linux</p>
                 </div>
         </section>
         <!--  -->
@@ -133,20 +127,19 @@
             </div>
         </section>
 
-        <section class="py-5 my-5" id="why"><!--  -->
+        <section class="py-5" id="why"><!--  -->
             <div class="container">
-                <h1 class="lead text-center fw-bolder" style="font-size: 30px">Why?</h1>
                 <div>
-                    <p class="lead">I love Fedora.
-                        <br>My only complain was slow mirror speed.<br>
+                    <p class="lead">I love Fedora
+                        <br>My only complain was slow mirror speed<br>
 
                         Ubuntu has Software Center, Arch has Reflector but Fedora didn't have
-                        anything.
+                        anything similar <br>
+                        Fedora has fastestmirror plugin but it <a class="link-dark" href="#fast_mirror">sucks</a><br>
                     </p>
                     <br>
                     <p class="h1">Introducing Fedora MiMe</p>
-                    <p class="lead">A simple Electron app that enables user to measure different mirror speed of Fedora
-                        Linux</p>
+                    <p class="lead">A simple Electron app that will help you find Fedora mirrors & run speedtest</p>
                 </div>
             </div>
         </section>
@@ -158,16 +151,18 @@
                 <p class="lead">
                     Good Question<br>
                     But it sucks<br><br>
-                    <code>...fastestmirror is based on a faulty concept, when it's turned on your dnf pings all the servers in the list it has and takes the fastest ping time as the "fastestmirror" and it goes to that one as the server...</code>
-                    <br><a class="link-dark"
-                        href="https://forums.fedoraforum.org/showthread.php?328191-Enable-Fastest-Mirror"
-                        target="_blank">From Fedora Forum</a>
-                    <br>
-                    <br>
+                <blockquote>...fastestmirror is based on a faulty concept, when it's turned on your dnf pings all the
+                    servers
+                    in the list it has and takes the fastest ping time as the "fastestmirror" and it goes to that
+                    one as the server...</blockquote>
+                <a class="link-dark" href="https://forums.fedoraforum.org/showthread.php?328191-Enable-Fastest-Mirror"
+                    target="_blank">Fedora Forum</a>
+                <br>
+                <br>
                 <p class="lead">From my personal experience, I used to get around <b>500 Kb/s</b><br>After measuring
                     with it
                     now
-                    I get around <b>5 Mb/s</b></p>
+                    I get around <b>5 Mb/s!</b> <sub class="fst-italic"> Yeah I have slow internet</sub> </p>
                 <p class="lead">If we look into Ubuntu's Software Center or Arch's Reflector, they all measure download
                     speed from servers<br>
                     For some reason Fedora will determine fastest mirror by ping time -_-<br>
@@ -181,14 +176,23 @@
         </section>
         <section class="my-5 py-5" id="downloads">
             <div class="container">
-                <h1 class="lead text-center fw-bold" style="font-size: 30px">Test Now!</h1>
+                <h1 class="lead text-center fw-bold" style="font-size: 30px">Measure Now!</h1>
                 <div class="my-5">
                     <p class="lead text-center"> <i class="fa fa-linux fa-brands fa-2xl"></i> Linux:
-                        <a href="" target="_blank">AppImage</a> | <a href="" target="_blank"></i>RPM</a>
+                        <a
+                            href="https://github.com/fardinkamal62/fedora-mirror-measure/releases/download/GUI/Fedora.MiMe-3.0.0.AppImage">AppImage</a>
+                        | <a
+                            href="https://github.com/fardinkamal62/fedora-mirror-measure/releases/download/GUI/Fedora.MiMe-3.0.0.rpm"></i>RPM</a>
                     </p>
                     <br>
                     <p class="lead text-center"> <i class="fa fa-windows fa-brands fa-2xl"></i> Windows:
-                        <a href="" target="_blank">Portable</a>
+                        <a
+                            href="https://github.com/fardinkamal62/fedora-mirror-measure/releases/download/GUI/Fedora.MiMe-3.0.0.exe">Portable</a>
+                    </p>
+                    <br>
+                    <p class="lead text-center">
+                        <i class="fa fa-box-open fa-xl"></i> Source: <a
+                            href="https://github.com/fardinkamal62/fedora-mirror-measure" target="_blank">Github</a>
                     </p>
                 </div>
             </div>
