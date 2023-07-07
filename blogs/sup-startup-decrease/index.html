@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v2"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png?v2"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png?v2"/>
+    <link rel="favicon" href="/assets/favicon.ico?v2"/>
+
+    <title>Reduction of SUP's startup time | Fardin's blog</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <!--  -->
+    <!--bootstrap bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+            integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+            crossorigin="anonymous"></script>
+    <!---->
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous"/>
+    <!--  -->
+    <!--  font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!--    -->
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <!--  -->
+</head>
+<style>
+    .nav-pills {
+        --bs-nav-pills-link-active-bg: black;
+        --bs-nav-pills-link-active-color: white;
+    }
+
+    .nav {
+        --bs-nav-link-color: black;
+        --bs-nav-link-hover-color: #626262;
+    }
+
+    .goup:hover {
+        color: black;
+    }
+
+    .dark-mode {
+        background-color: #222222;
+        color: white;
+    }
+</style>
+
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-black sticky-top">
+    <div class="container">
+        <a href="/" style="font-size: 40px;" class="navbar-brand">{~,~}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#backstory">Backstory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#how">How Did It Happen?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#learning">Learning</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- navbar end -->
+
+<!-- intro -->
+<section class="p-5 text-center" id="intro">
+    <div class="container">
+        <div class="d-sm-flex p-5 flex-column">
+            <div>
+                <h1 style="font-size: 80px;">SUP admin portal startup time reduction</h1>
+                <p>A case study on how startup time reduced from <b>10 minutes</b> to <b>10 seconds</b></p>
+                <small style="color: gray;">7 July 2023</small>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  -->
+
+<!-- backstory -->
+<section id="backstory">
+    <div class="container">
+        <div class="d-sm-flex p-3 flex-column">
+            <div>
+                <h1>Backstory</h1>
+                <div class="m-3">
+                    <p><a href="https://supapp.in/" style="color: #00bc57;" target="_blank">Sustainability
+                        Upgrade Program</a>(SUP) uses MERN stack on their admin portal. For a few
+                        months I was working on that React part. From the beginning I was facing ~10 minutes startup
+                        time. If IDE
+                        crashes again I have to wait for 10 minutes. It was very frustrating & one of our major
+                        bottleneck.
+                    </p>
+                    <p>I always used to see this error message in the terminal</p>
+                    <img class="img-fluid m-2" src="./error.png" alt="error">
+                    <br>
+                    <br>
+                    <p>I didn't care about it because in the back-end also we get some errors, mostly due to AWS
+                        SDK upgrade.</p>
+                </div>
+                <div class="m-3">
+                    <p>One day I read the error. Understood something is wrong in <u>index.scss</u>. I
+                        knew we had
+                        <u>carbon-component-react</u> installed, in the <u>node_modules</u> folder.
+                        So I changed
+                    </p>
+                    <div class="d-flex m-2">
+                        <img class="img-fluid d-sm-block mx-2" src="./before.png" alt="before">
+                        <img class="img-fluid d-sm-block mx-2" src="./after.png" alt="after">
+                    </div>
+                    <p>And voila,startup time reduced to 10 seconds only!
+                        <br> Great success 👍
+                    </p>
+                </div>
+                <br><br>
+                <div id="how">
+                    <h3>But How Did It Happen?</h3>
+                    <p class="m-3">
+                        Suppose I invited you to my birthday party but I didn't give my address. Instead I tell
+                        you my name is Fardin and I live in Dhaka
+                        <br>
+                        You've to ask millions of people in Dhaka
+                        city to find my home. Can you imagine the situation 🥲
+                        <br>
+                        What if I tell you my address is 123/45 Malibagh. Super easy to find my home, right?
+                        <br>
+                        This is what happened
+                        <br>
+                        <br>
+                        We only wrote <u>@import "carbon-component-react..."</u> but we didn't have any folder in that
+                        name in current folder of <u>index.scss</u>
+                        <br>
+                        So what CSS loader did is, he started going through the whole project searching for
+                        <u>carbon-componen-react</u> folder in every folder and subfolder
+                        <br>
+                        <br>
+                        Matter of fact, this project has 13765 directories with 3-6 level of sub-folders☠️
+                        <br>
+                        Though most of them are 'node_modules', CSS loader was going to those folders too
+                        <br><br>
+                        First it searches for <u>carbon-component-react</u> folder -> loads -> starts admin panel. It
+                        takes ~10 minutes to search for the folder
+                        <br>
+                        When I changed it to relative path <u>@import "../node_module/carbon-component-react/..."</u>,
+                        it didn't have to search/go through the project, it
+                        simply loaded the defined folder. Reducing time at large. Just like my address, 123/45
+                        Malibagh.
+                        <br>
+                        <br>
+                        Resource usage before & after
+                    </p>
+                    <div class="d-flex m-2 justify-content-center">
+                        <img class="img-fluid d-sm-block mx-2" style="width: 40%; height: auto;"
+                             src="./before_cpu.png" alt="before_cpu">
+                        <img class="img-fluid d-sm-block mx-2" style="width: 40%; height: auto;"
+                             src="./after_cpu.png" alt="after_cpu">
+                    </div>
+                </div>
+                <br><br>
+                <div>
+                    <b>Before</b> CPU usage was around 20-30% for ~10 minutes straight
+                    <br>
+                    <b>After</b> CPU usage is around 20-30% for ~10 seconds
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  -->
+<!-- learning -->
+<section id="learning">
+    <div class="container">
+        <div class="d-sm-flex p-3 flex-column">
+            <h1>Learning</h1>
+            <div>
+                <ul>
+                    <li>Don't ignore any error message</li>
+                    <li>Always use relative path</li>
+                    <li>Understand why the problem occurred</li>
+                    <li>Understand why the solution worked</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  -->
+
+<footer>
+    <div class="d-flex justify-content-center my-5">
+        <h5>Reach Out To Me</h5>
+        <div class="flex-column mx-2 h5">
+            <!-- linkedin -->
+            <a style="color: black" type="button" class="fa-linkedin fa-brands mx-1 fa-lg"
+               href="https://www.linkedin.com/in/fardin-kamal-565216217/" target="_blank"></a>
+            <!--  -->
+            <!-- mail -->
+            <a style="color: black" type="button" class="fa fa-envelope-square mx-1 fa-lg"
+               href="mailto:fardinkamal62@protonmail.ch" target="_blank"></a>
+            <!--  -->
+            <!-- git -->
+            <a style="color: black; text-decoration: auto" type="button" class="fa-brands fa-github mx-1 fa-lg"
+               href="https://github.com/fardinkamal62" target="_blank"></a>
+            <!--  -->
+        </div>
+    </div>
+</footer>
+
+<div style="position: fixed;bottom: 0; left: 0; display: flex; flex-direction: column;">
+    <a class="position-sticky fa fa-moon p-2 h1 goup bg-light rounded-5"
+       style="text-decoration: auto; color: black;" id="dark-mode-toggle" onclick="darkMode()"></a>
+    <a href="#" class="position-sticky bottom-0 start-0 fa fa-arrow-up p-2 h1 goup rounded-pill bg-light"
+       style="text-decoration: auto; color: black;"></a>
+</div>
+
+<script>
+    function darkMode() {
+        document.body.classList.toggle("dark-mode");
+        $('nav').toggleClass('navbar-dark bg-black bg-white');
+        $('#dark-mode-toggle').toggleClass('fa-moon fa-sun h1 h2');
+    }
+    function getTheme() {
+        if(window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
+            return "dark";
+        } else {
+            return "light";
+        }
+    }
+    getTheme() === "dark" ? darkMode() : null;
+</script>
+
+</body>
