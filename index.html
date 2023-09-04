@@ -19,13 +19,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
     <!--  -->
     <!--bootstrap bundle-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
-        integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <!---->
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!--  -->
     <!--  font awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -46,7 +43,7 @@
             --bs-nav-link-hover-color: #626262;
         }
 
-        .goup:hover {
+        .go-up:hover {
             color: black;
         }
 
@@ -69,13 +66,13 @@
                         <a class="nav-link" aria-current="page" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#experience">Experience</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#project">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#blog">Blogs</a>
                     </li>
                 </ul>
             </div>
@@ -471,7 +468,7 @@
                                 and it goes to that one as the server. But this script
                                 measures actual download speed.
                             </div>
-                            <a href="./projects/mime/" class="btn btn-light my-4 border border-dark">
+                            <a href="./projects/mime/" target="_blank" class="btn btn-light my-4 border border-dark">
                                 Learn More
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
@@ -481,7 +478,7 @@
                     <div class="border border-2">
                         <div class="card-body text-center bg-body text-black">
                             <div class="card-title h1 m-3">
-                                Shodai<img src="/assets/shodai-adaptive-icon.png" style="width: 15%; height: auto" />
+                                Shodai<img src="/assets/shodai-adaptive-icon.png" style="width: 15%; height: auto" alt="Shodai banner" />
                             </div>
                             <div class="row">
                                 <div style="color: #00de7a">
@@ -490,13 +487,6 @@
                             </div>
                             <div class="card-text m-3">
                                 Not another e-commerce platform 😮‍💨
-                            </div>
-                            <div class="card-text m-3">
-                                It's understandable that going to bazaar, bargaining is a fun
-                                experience.
-                                <br />
-                                In the era of e-commerce, we often miss the thrill of
-                                bargaining at the bazaar
                             </div>
                             <div class="m-3">
                                 Remember the piece of paper where you note down all the items
@@ -508,140 +498,42 @@
                                 <i style="color: #dd5353">Shodai</i> also provides you
                                 real-time market prices for the items you need to buy.
                             </div>
-                            <a href="./projects/shodai/" class="btn btn-light my-4 border border-dark">
+                            <a href="./projects/shodai/" target="_blank" class="btn btn-light my-4 border border-dark">
                                 Learn More
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row my-5">
-                <div class="col-md">
-                    <div class="border border-2">
-                        <div class="card-body text-center bg-body text-black">
-                            <div class="card-title h1 m-3 pt-4">Iskul</div>
-                            <div class="row">
-                                <div style="color: #787cb5">
-                                    <i class="fa fa-php fa-brands fa-2xl"></i>
-                                </div>
-                                <div class="" style="color: #00758f">
-                                    My<span style="color: #f29111">SQL</span>
-                                </div>
-                            </div>
-                            <div class="card-text m-3">
-                                A replica of my college's class room portal where schools can
-                                take classes, exams. If you're familiar with online.udvash.com
-                                or edulive.edu-smart.info, this is exactly like them. I wrote
-                                it from scratch using PHP on server side and mysql database.
-                            </div>
-                            <a href="https://github.com/fardinkamal62/iskul" target="_blank"
-                                class="btn btn-light my-4 border border-dark">
-                                Code <i class="fa fa-code m-1"></i></a>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-dark w-25" onclick="window.open('./projects', '_blank').focus();">See More <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+        </div>
+    </section>
 
-                            <a href="https://acting-tastes.000webhostapp.com/iskul/" target="_blank"
-                                class="btn btn-light my-4 border border-dark">
-                                Live <i class="fa fa-power-off"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="border border-2">
-                        <div class="card-body text-center bg-body text-black">
-                            <div class="card-title h1 m-3 pt-4">Iskul v2</div>
-                            <div class="row">
-                                <div style="color: #bba515">
-                                    <i class="fa-brands fa-js fa-2xl m-1"></i>
-                                    <i style="color: #3c873a" class="fa-brands fa-node fa-2xl m-1"></i>
-                                    <i style="color: #6296d9" class="fa-brands fa-react fa-2xl m-1"></i>
-                                </div>
-                                <div class="m-2">MongoDB</div>
-                            </div>
-                            <div class="card-text m-3">
-                                Version 2 of the Iskul project. This is a complete rewrite of
-                                the original Iskul project, which can be found here. This time
-                                written in MERN Stack. And my first React project. This time
-                                my inspiration came from my university's student portal, which
-                                has lots of features that I think is useful for students. But
-                                the UI was not that good, so I decided to make my own student
-                                portal
-                            </div>
-                            <a href="https://github.com/fardinkamal62/iskul_v2" target="_blank"
-                                class="btn btn-light my-4 border border-dark">Code <i class="fa fa-code m-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="blog" class="my-5 py-5 bg-black text-white">
+        <div class="container">
+            <h1 class="lead text-center py-2 fw-bold" style="font-size: 30px">
+                Blogs
+            </h1>
             <div class="row my-5">
                 <div class="col-md">
-                    <div class="border border-2">
+                    <div>
                         <div class="card-body text-center bg-body text-black">
-                            <div class="card-title h1 m-3 pt-4">KOmegle</div>
-                            <div class="row">
-                                <div style="color: #bba515">
-                                    <i class="fa-brands fa-js fa-2xl m-1"></i><i style="color: #3c873a"
-                                        class="fa-brands fa-node fa-2xl m-1"></i>
-                                </div>
-                                <div class="m-1">Socket.IO</div>
-                            </div>
-                            <div class="card-text m-3">Omegle clone with NodeJS</div>
-                            <a href="https://github.com/fardinkamal62/KOmegle" target="_blank"
-                                class="btn btn-light my-4 border border-dark">
-                                Code <i class="fa fa-code m-1"></i></a>
-                            <a href="https://komegle.glitch.me/" class="btn btn-light my-4 border border-dark"
-                                target="_blank">
-                                Live <i class="fa fa-power-off"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="border border-2">
-                        <div class="card-body text-center bg-body text-black">
-                            <div class="card-title h1 m-3 pt-4">Grab On Behind</div>
-                            <div class="row">
-                                <div style="color: #bba515">
-                                    <i class="fa-brands fa-js fa-2xl m-1"></i><i style="color: #3c873a"
-                                        class="fa-brands fa-node fa-2xl m-1"></i>
-                                </div>
-                            </div>
+                            <div class="card-title h1 m-3 pt-4">SUP admin portal startup time reduction</div>
                             <div class="card-text m-3">
-                                Multiplayer word chain game. Player will say a programming
-                                language's name then other player will say another starting
-                                with previous last letter. Currently it's non persistent,
-                                input is stored until Glitch is running.
+                                A case study on how I've reduced startup time of a React project from <b>10 minutes</b> to <b>10 seconds</b>
                             </div>
-                            <a href="https://github.com/fardinkamal62/Grab-On-Behind" target="_blank"
-                                class="btn btn-light my-4 border border-dark">Code <i class="fa fa-code m-1"></i></a>
-                            <a href="https://grab-on-behind.glitch.me/" target="_blank"
-                                class="btn btn-light my-4 border border-dark">Live <i class="fa fa-power-off"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="border border-2">
-                        <div class="card-body text-center bg-body text-black">
-                            <div class="card-title h1 m-3 pt-4">Widen Newscast</div>
-                            <div class="row">
-                                <div style="color: #bba515">
-                                    <i class="fa-brands fa-js fa-2xl m-1"></i><i style="color: #3c873a"
-                                        class="fa-brands fa-node fa-2xl m-1"></i>
-                                </div>
-                            </div>
-                            <div class="card-text m-3">
-                                A news aggregator that allows users to view news from multiple sources in one place.
-                            </div>
-                            <a href="https://github.com/fardinkamal62/widen-newscast" target="_blank"
-                                class="btn btn-light my-4 border border-dark">Code <i class="fa fa-code m-1"></i></a>
-                            <a href="https://widen-newscast.fardinkamal62.repl.co/" target="_blank"
-                                class="btn btn-light my-4 border border-dark">Live <i class="fa fa-power-off"></i>
-                            </a>
-                            <a href="/projects/widen-newscast" class="btn btn-light my-4 border border-dark">Learn More 
-                                <i class="fa fa-arrow-up-right-from-square"></i>
-                            </a>
+                            <a href="./blogs/sup-startup-decrease" target="_blank" class="btn btn-light my-4 border border-dark">
+                                Learn More
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-light w-25" onclick="window.open('./blogs', '_blank').focus();">See More <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
         </div>
     </section>
     <!--  -->
@@ -652,7 +544,7 @@
         </div>
     </footer>
     <!-- go to top -->
-    <a href="#" class="position-sticky bottom-0 start-0 fa fa-arrow-up p-2 h1 goup rounded-pill bg-light"
+    <a href="#" class="position-sticky bottom-0 start-0 fa fa-arrow-up p-2 h1 go-up rounded-pill bg-light"
         style="text-decoration: auto"></a>
     <!--  -->
 
@@ -663,11 +555,11 @@
         // Set your joining date and today's date
         const experience = (id) => {
             const work = document.getElementById(id);
-            var joiningDate = new Date(work.dataset.date); // Replace with your actual joining date
-            var today = new Date(); // Current date
+            const joiningDate = new Date(work.dataset.date); // Replace with your actual joining date
+            const today = new Date(); // Current date
 
             // Calculate the difference in months
-            var diffMonths = (today.getFullYear() - joiningDate.getFullYear()) * 12;
+            let diffMonths = (today.getFullYear() - joiningDate.getFullYear()) * 12;
             diffMonths -= joiningDate.getMonth();
             diffMonths += today.getMonth();
 
@@ -695,9 +587,6 @@
         // tooltip
         const tooltipTriggerList = document.querySelectorAll(
             '[data-bs-toggle="tooltip"]'
-        );
-        const tooltipList = [...tooltipTriggerList].map(
-            (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
         );
       //
     </script>

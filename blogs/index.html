@@ -1,15 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../index.css">
-    <title>Fardin Kamal Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Blogs | Fardin Kamal</title>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v2"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png?v2"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png?v2"/>
+    <link rel="favicon" href="/assets/favicon.ico?v2"/>
+    <!--  -->
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"/>
+    <!--  -->
+    <!--bootstrap bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <!---->
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!--  -->
+    <!--  font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!--    -->
+    <!-- jquery   -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!--    -->
 </head>
-<body>
-    <h2>Welcome to my blog</h2>
-    <p>Just some stories: </p>
-    <a href="alogout.html">Auto Log out with one line of code</a>
+
+<body style="font-family: 'Quicksand', sans-serif">
+<!-- navbar -->
+<nav class="navbar navbar-expand-md bg-black navbar-dark sticky-top">
+    <div class="container">
+        <a href="/" class="navbar-brand" style="font-size: 40px">{~,~}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent">
+            <h1 style="color: white;">Blogs</h1>
+        </div>
+    </div>
+</nav>
+<!-- navbar end -->
+
+<section class="py-5">
+    <div class="d-flex justify-content-center">
+        <form class="form-floating w-50">
+            <textarea class="form-control mb-3" placeholder="SUP" id="search-area" style="resize: none"
+                      spellcheck="false"></textarea>
+            <label for="search-area">Search Blogs</label>
+        </form>
+    </div>
+    <p style="margin-left: 26%">Total Results: <span id="total"></span></p>
+</section>
+
+<section class="px-5">
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 d-flex justify-content-center m-0" id="blog-container"></div>
+
+</section>
+
+<script>
+    const blogs = [
+        {
+            title: "SUP admin portal startup time reduction",
+            image: "../../assets/error.png",
+            imageAlt: "SUP startup reduction banner",
+            bodyText: "A case study on how startup time reduced from <b>10 minutes</b> to <b>10 seconds</b>.",
+            onclick: "./sup-startup-decrease",
+            keywords: ["SUP", "startup", "time", "reduction", "case", "study", "Error", "404", "Bug Fix"],
+        },
+    ];
+
+    const render = (blogs) => {
+        $("#blog-container").html("");
+        blogs.forEach(blog => {
+                $("#blog-container").append(`
+            <div class="card p-3 m-3" style="width: 18rem; ${blog.onclick && `cursor: pointer`};" ${blog.onclick ? `onclick="window.location = '${blog.onclick}'"` : ""}>
+            ${blog.image ? `<img src="${blog.image}" class="card-img-top m-2" alt="${blog.imageAlt}" style="width: 70%; height: auto;align-self: center;">` : ""}
+            ${blog.title ? `<h3 class="card-title text-center mt-3">${blog.title}</h3>` : ""}
+                <div class="card-body">
+                    <p class="card-text">${blog.bodyText}</p>
+                </div>
+            </div>
+            `)
+            }
+        )
+
+        if(blogs.length === 0) $("#blog-container").append(`<h1 class="text-center">No results found</h1>`);
+        $("#total").html(blogs.length);
+    };
+
+    render(blogs);
+
+    $("#search-area").keyup(function () {
+        const search = $(this).val().toLowerCase();
+
+        if (search === "") render(blogs);
+
+        const filteredProjects = blogs.filter(project => {
+            return (project.title && project.title.toLowerCase().includes(search)) || project.bodyText.toLowerCase().includes(search) || project.keywords.includes(search)
+        });
+
+        render(filteredProjects);
+    })
+</script>
 </body>
+
 </html>
