@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.lightMode {
+    @apply bg-gray-50 text-gray-950;
+}
+
+.darkMode {
+    @apply bg-black text-white;
+}
