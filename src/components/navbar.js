@@ -14,7 +14,7 @@ function NavBar() {
     };
 
     return (
-        <AppBar position="sticky" className={`${lightMode ? 'lightMode' : 'darkMode'}`}>
+        <AppBar position="sticky" className={`${lightMode ? 'lightMode' : 'darkMode'}`} sx={{boxShadow: 'none'}}>
             <Container maxWidth="xl">
                 <Toolbar>
                     <Typography
@@ -35,7 +35,7 @@ function NavBar() {
                         {pages.map((page) => (
                             <Button
                                 key={page.title}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'Quicksand' }} // TODO: Font needs to be fixed
                                 className={`${lightMode ? 'lightMode' : 'darkMode'}`}
                                 href={page.url}
                             >
