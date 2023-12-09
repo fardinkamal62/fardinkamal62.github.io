@@ -17,30 +17,12 @@ function NavBar() {
         <AppBar position="sticky" className={`${lightMode ? 'lightMode' : 'darkMode'}`} sx={{boxShadow: 'none'}}>
             <Container maxWidth="xl">
                 <Toolbar>
-                    <Typography
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            fontFamily: 'Quicksand',
-                            fontSize: '40px',
-                            textDecoration: 'none',
-                            fontWeight: 300,
-                        }}
-                    >{'{~,~}'}
-                    </Typography>
-
+                    <a href='/' className={`text-4xl ${ lightMode ? 'text-gray-700' : 'text-gray-400'}`} style={{ textDecoration: 'none' }}>{'{~,~}'}</a>
                     <Box sx={{ flexGrow: 100 }}></Box>
+                    {/* TODO On small screen hide the links and show a menu */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page.title}
-                                sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'Quicksand' }} // TODO: Font needs to be fixed
-                                className={`${lightMode ? 'lightMode' : 'darkMode'}`}
-                                href={page.url}
-                            >
-                                {page.title}
-                            </Button>
+                        {pages.map((page, index) => (
+                            <a href={page.url} key={index} className={`text-lg mx-2 ${ lightMode ? 'text-gray-700' : 'text-gray-400'}`} style={{ textDecoration: 'none' }}>{page.title}</a>
                         ))}
                     </Box>
 
