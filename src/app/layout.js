@@ -15,6 +15,7 @@ export const metadata = {
 export default function RootLayout({children}) {
     return (
         <html lang="en" suppressHydrationWarning>
+        <link rel="icon" href="/favicon.ico"/>
         <body className={`${quickSand.className} bg-white dark:bg-black dark:text-white`}>
             <ThemeProvider attribute={'class'}>
                 <NavBar/>

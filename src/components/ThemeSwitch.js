@@ -13,7 +13,7 @@ const ThemeSwitch = () => {
 
     return (
         <Tooltip title={`Toggle Night Mode ${theme === 'light' ? 'On' : 'Off'}`}>
-            <IconButton onClick={handleTheme} sx={{ p: 0 }}>
+            <IconButton onClick={handleTheme} className={'p-0'}>
                 {theme === 'light' ? <DarkMode alt='night-mode-toggle' /> : <LightModeOutlined className={'dark:text-white'} alt='light-mode-toggle' />}
             </IconButton>
         </Tooltip>

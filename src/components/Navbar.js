@@ -19,7 +19,7 @@ const navbarTheme = createTheme({
 
 function NavBar() {
     return (
-        <AppBar position="sticky" className={'bg-white dark:bg-black dark:text-black'} sx={{boxShadow: 'none'}} theme={navbarTheme}>
+        <AppBar position="sticky" className={'bg-gray-50 dark:bg-gray-950 dark:text-black'} sx={{boxShadow: 'none'}} theme={navbarTheme}>
             <Container maxWidth="xl">
                 <Toolbar className={'text-gray-700 dark:text-gray-400'}>
                     <a href='/' className={`text-4xl`} style={{ textDecoration: 'none' }}>{'{~,~}'}</a>
@@ -27,11 +27,11 @@ function NavBar() {
                     {/* TODO On small screen hide the links and show a menu */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page, index) => (
-                            <a href={page.url} key={index} className={`text-lg mx-2`} style={{ textDecoration: 'none' }}>{page.title}</a>
+                            <a href={page.url} key={index} className={`text-lg mx-2 decoration-0`}>{page.title}</a>
                         ))}
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box>
                         <ThemeSwitch />
                     </Box>
                 </Toolbar>
