@@ -5,7 +5,7 @@ import Contact from './contact';
 
 export default function Intro() {
     return (
-        <Container>
+        <Container className={'mb-32'}>
             <Box>
                 <div className='flex lg:flex-row-reverse flex-col items-center lg:justify-between justify-center'>
                     <Grid item>
