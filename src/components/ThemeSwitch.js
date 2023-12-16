@@ -5,6 +5,13 @@ import { IconButton, Tooltip } from '@mui/material';
 import { useTheme } from "next-themes";
 
 const ThemeSwitch = () => {
+    if (typeof window !== 'undefined') {
+        const localStorageTheme = window.localStorage.getItem('theme');
+        if (localStorageTheme) {
+            window.localStorage.removeItem('theme');
+        }
+    }
+
     const { theme, setTheme } = useTheme();
 
     const handleTheme = () => {
