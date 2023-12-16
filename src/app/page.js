@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, Tooltip } from '@mui/material';
+import { Container } from '@mui/material';
 
 import Intro from './intro';
 
