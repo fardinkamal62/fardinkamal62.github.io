@@ -33,7 +33,7 @@ export default function About() {
         </p>
     }
     return (
-        <Container className={'mb-32'}>
+        <Container className={'mb-32'} id={'about'}>
             <Box>
                 <div className='flex flex-col items-center justify-center'>
                     <h1 className={'text-4xl font-bold'}>About</h1>
