@@ -3,7 +3,7 @@
 import {useState} from "react";
 import {Box, Container, Tabs, Tab} from '@mui/material';
 
-export default function TabComponent({tabs, tabClassName}) {
+export default function TabComponent({tabs, tabClassName, handleTabIndexChange}) {
     const [value, setValue] = useState(0);
 
     if (!tabs) {
@@ -12,6 +12,7 @@ export default function TabComponent({tabs, tabClassName}) {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        handleTabIndexChange(newValue);
     };
 
     return (
