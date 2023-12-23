@@ -6,8 +6,8 @@ import NavbarMenu from './NavbarMenu';
 
 const pages = [{title: 'About', url: '#about'}, {title: 'Experience', url: '#experience'}, {
     title: 'Projects',
-    url: '#projects'
-}, {title: 'Blogs', url: '#blogs'}];
+    url: '#project'
+}, {title: 'Blogs', url: '#blog'}];
 
 const navbarTheme = createTheme({
     components: {

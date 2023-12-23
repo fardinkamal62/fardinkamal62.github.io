@@ -4,6 +4,7 @@ import Intro from '@/app/Intro';
 import About from '@/app/About';
 import Experience from "@/app/Experience";
 import Project from "@/app/Project";
+import Blog from "@/app/Blog";
 
 
 export default function Home() {
@@ -16,6 +17,8 @@ export default function Home() {
             <Experience />
             <hr className={'mb-24'}/>
             <Project />
+            <hr className={'mb-24'}/>
+            <Blog />
         </Container>
     )
 }
