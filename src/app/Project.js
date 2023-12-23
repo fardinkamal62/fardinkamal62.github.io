@@ -34,7 +34,7 @@ const projects = [
                     A software that measures Fedora mirror speed, correctly
                 </p>
                 <div className="m-3">
-                    Fedora had a big problem with autoselecting best mirror. DNF's
+                    Fedora had a big problem with autoselecting best mirror. DNF&#39;s
                     <i>fastestmirror</i> module pings all the servers in the list
                     it has and takes the fastest ping time as the
                     <i>fastestmirror</i>

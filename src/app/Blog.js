@@ -31,7 +31,7 @@ const blogs = [
         description: (
             <>
                 <p>
-                    A case study on how I've reduced startup time of a React project from <b>10 minutes</b> to <b>10 seconds</b>
+                    A case study on how I&#39;ve reduced startup time of a React project from <b>10 minutes</b> to <b>10 seconds</b>
                 </p>
             </>
         ),

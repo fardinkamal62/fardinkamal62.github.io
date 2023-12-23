@@ -13,18 +13,18 @@ export default function About() {
             <br/>
             <br/>
 
-            Here's something that sets me apart - I landed a gig as a Software Developer intern while still
+            Here&#39;s something that sets me apart - I landed a gig as a Software Developer intern while still
             in 12th grade, rubbing shoulders with brilliant CSE students
             Talk about getting a head start 😎
             <br/>
             <br/>
-            You'll find me volunteering and doing my part for society. I've been a blood donor since I was
+            You&#39;ll find me volunteering and doing my part for society. I&#39;ve been a blood donor since I was
             young
             I also enjoy lending a hand for Gonoshasthaya Kendra, an awesome organization providing
             healthcare services in Bangladesh
             <br/>
             <br/>
-            I'm not just tech-savvy; I'm a Linux aficionado.
+            I&#39;m not just tech-savvy; a Linux aficionado also.
             Oh, and guess what? My team, EliteSploit, participated in the epic Bangladesh National
             CyberDrill-2020, showcasing our skills and expertise
             <br/>
