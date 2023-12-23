@@ -198,12 +198,12 @@ const workExperience = [
                 <li>Reduced the admin panel startup time from <b>10 minutes</b> to <b>10 seconds</b> by resolving
                     critical errors.
                 </li>
-                <li>Streamlining the backend of the "Wish List" project to improve user experience</li>
-                <li>Enhancing user onboarding for the "Referral" project by optimizing backend processes</li>
-                <li>Developing the "Organization" entity, enabling smooth management and onboarding of organizations
+                <li>Streamlining the backend of the &#34;Wish List&#34; project to improve user experience</li>
+                <li>Enhancing user onboarding for the &#34;Referral&#34; project by optimizing backend processes</li>
+                <li>Developing the &#34;Organization&#34; entity, enabling smooth management and onboarding of organizations
                     for SUP.
                 </li>
-                <li>Creating the "Eco Hub" control panel, facilitating efficient organization management.</li>
+                <li>Creating the &#34;Eco Hub&#34; control panel, facilitating efficient organization management.</li>
             </ul>
             <br/>
             <p className={'text-3xl'}>Mentorship</p>
