@@ -5,7 +5,7 @@ import {Box, Container} from '@mui/material';
 import {Business, Construction} from "@mui/icons-material";
 
 import TabComponent from "@/components/Tabs";
-import Accordion from '@/components/Accordion';
+import Accordion from '@/components/WorkExperienceAccordion';
 
 const tabs = [
     {
@@ -285,8 +285,12 @@ function renderTable(object) {
             {categories.map(category => {
                 if (object[category][i]) {
                     return <td key={object[category][i].label}
-                               className={'px-36 py-3 whitespace-nowrap'}>{object[category][i].hasIndustryExperience ?
-                        <u>{object[category][i].label}</u> : object[category][i].label}</td>
+                               className={'px-36 py-3 whitespace-nowrap'}
+                               title={object[category][i].hasIndustryExperience ? 'Have Industry Experience' : ''}
+                    >
+                        {object[category][i].hasIndustryExperience ?
+                            <u>{object[category][i].label}</u> : object[category][i].label}
+                    </td>
                 } else {
                     return <td key={object[category][i] + 'undefined'} className={''}></td>
                 }

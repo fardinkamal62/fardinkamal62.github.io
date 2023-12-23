@@ -4,10 +4,12 @@ import {AppBar, Box, Toolbar, Container, createTheme} from '@mui/material';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import NavbarMenu from './NavbarMenu';
 
-const pages = [{title: 'About', url: '#about'}, {title: 'Experience', url: '#experience'}, {
-    title: 'Projects',
-    url: '#project'
-}, {title: 'Blogs', url: '#blog'}];
+const pages = [
+    {title: 'About', url: '#about'},
+    {title: 'Experience', url: '#experience'},
+    {title: 'Project', url: '#project'},
+    {title: 'Blog', url: '#blog'}
+];
 
 const navbarTheme = createTheme({
     components: {
