@@ -94,7 +94,7 @@ const workExperience = [
         company: 'DeepThought Growth Management System',
         duration: ['19 November 2022 UTC+6', ''],
         url: 'https://deepthought.education',
-        description: <div>
+        description: (<div>
             <p>Software Developer at <a href={'https://deepthought.education'} target={'_blank'}
                                         className={'underline hover:text-blue-500'}>DeepThought Growth Management
                 System</a></p>
@@ -172,7 +172,7 @@ const workExperience = [
                     individuals with valuable knowledge and practical skills
                 </ul>
             </div>
-        </div>
+        </div>)
     },
     {
         title: 'Software Developer',
@@ -184,7 +184,7 @@ const workExperience = [
             'https://deepthought.education',
         type:
             'Part-Time',
-        description: <div>
+        description: (<div>
             <p>Software Developer at <a href={'https://supapp.in/'} target={'_blank'}
                                         className={'underline hover:text-blue-500'}>SUP Eco App
                 System</a></p>
@@ -194,7 +194,7 @@ const workExperience = [
             <p>Client company of DeepThought</p>
             <br/>
             Key achievements include:
-            <ul className={'list-decimal list-inside ml-5'}>
+            <ul className={'list-decimal list-inside ml-5 p-2'}>
                 <li>Reduced the admin panel startup time from <b>10 minutes</b> to <b>10 seconds</b> by resolving
                     critical errors.
                 </li>
@@ -206,8 +206,11 @@ const workExperience = [
                 <li>Creating the "Eco Hub" control panel, facilitating efficient organization management.</li>
             </ul>
             <br/>
-            Also helping their intern to improve their technical &amp; leadership skills
-        </div>
+            <p className={'text-3xl'}>Mentorship</p>
+            <p className={'p-2'}>
+                Helped their intern to improve their technical &amp; leadership skills
+            </p>
+        </div>)
     },
     {
         title: 'Software Developer Intern',
@@ -219,7 +222,7 @@ const workExperience = [
             'https://deepthought.education',
         type:
             'Part-Time',
-        description: <div>
+        description: (<div>
             <p>Software Developer Intern at <a href={'https://deepthought.education'} target={'_blank'}
                                                className={'underline hover:text-blue-500'}>DeepThought Growth Management
                 System</a></p>
@@ -228,32 +231,34 @@ const workExperience = [
             <br/>
 
             <p className={'text-3xl mb-2'}>Projects</p>
-            <ul className={'list-disc list-item list-inside'}>
-                <b>DeepThought Marketplace </b>
-                DT ecosystem Marketplace from scratch with virtual
-                currency system as well as sub-market facility
-            </ul>
+            <div className={'p-2'}>
+                <ul className={'list-disc list-item list-inside'}>
+                    <b>DeepThought Marketplace </b>
+                    DT ecosystem Marketplace from scratch with virtual
+                    currency system as well as sub-market facility
+                </ul>
 
-            <ul className={'list-disc list-item list-inside'}>
-                <b>DeepThought Profile Page </b>
-                DT Student &amp; Parents account profile page. Worked on
-                existing Profile Page project to bug fix &amp; add small
-                improvements
-            </ul>
+                <ul className={'list-disc list-item list-inside'}>
+                    <b>DeepThought Profile Page </b>
+                    DT Student &amp; Parents account profile page. Worked on
+                    existing Profile Page project to bug fix &amp; add small
+                    improvements
+                </ul>
 
-            <ul className={'list-disc list-item list-inside'}>
-                <b>DeepThought CPaaS </b>
-                Communication Platform as a Service; used to communicate
-                outside of DT ecosystem. Can be used to send
-                email/SMS/WhatsApp messages. Actively used by
-                DeepThought DTThon project to send emails to applicants.
-            </ul>
-            <p className={'text-3xl my-2'}>Mentor</p>
-            <p>
+                <ul className={'list-disc list-item list-inside'}>
+                    <b>DeepThought CPaaS </b>
+                    Communication Platform as a Service; used to communicate
+                    outside of DT ecosystem. Can be used to send
+                    email/SMS/WhatsApp messages. Actively used by
+                    DeepThought DTThon project to send emails to applicants.
+                </ul>
+            </div>
+            <p className={'text-3xl my-2'}>Mentorship</p>
+            <p className={' p-2'}>
                 Mentored one person to become better
                 backend developer and get used to our codebase.
             </p>
-        </div>
+        </div>)
     }
 ];
 

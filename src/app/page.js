@@ -3,6 +3,7 @@ import { Container } from '@mui/material';
 import Intro from '@/app/Intro';
 import About from '@/app/About';
 import Experience from "@/app/Experience";
+import Project from "@/app/Project";
 
 
 export default function Home() {
@@ -13,6 +14,8 @@ export default function Home() {
             <About />
             <hr className={'mb-24'}/>
             <Experience />
+            <hr className={'mb-24'}/>
+            <Project />
         </Container>
     )
 }
