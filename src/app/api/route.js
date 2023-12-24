@@ -1,5 +1,9 @@
+import * as database from '@/util/db'
+
 export async function GET() {
-    return new Response(JSON.stringify({ message: "Hello" }), {
+    const data = await database.get();
+
+    return new Response(JSON.stringify(data), {
         status: 200,
         statusText: 'OK',
         headers: {

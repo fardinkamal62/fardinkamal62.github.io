@@ -8,7 +8,7 @@ import Project from "@/app/Project";
 import ScrollToTop from "@/components/ScrollToTop";
 import NavBar from "@/components/Navbar";
 
-export default function Blogs() {
+export default function Projects() {
     return (
         <>
             <NavBar pages={navbarPages}/>
