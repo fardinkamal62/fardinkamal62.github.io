@@ -1,7 +1,4 @@
-import {Box, Typography, Container, Link, Grid} from '@mui/material';
-import Image from 'next/image'
-
-import Contact from './contact';
+import {Box, Container} from '@mui/material';
 
 export default function About() {
     const oneLiner = 'Software Developer intern after 12th 🤙';

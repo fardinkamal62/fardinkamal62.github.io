@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import { ArrowOutward } from "@mui/icons-material";
 
 export default function Cards({contents, classes}) {
+    if (!contents) return (<></>);
+
     return (contents.map((content, index) => (
             <Card key={index} className={classes}>
                 <CardContent>

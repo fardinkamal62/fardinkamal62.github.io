@@ -1,4 +1,4 @@
-import { Container, Grid, Box, Typography, Link } from "@mui/material";
+import { Container, Grid, Box } from "@mui/material";
 import { LinkedIn, Mail, GitHub } from "@mui/icons-material";
 
 export default function Contact() {

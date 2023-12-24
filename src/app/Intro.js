@@ -1,4 +1,4 @@
-import {Box, Typography, Container, Link, Grid} from '@mui/material';
+import {Box, Container, Link, Grid} from '@mui/material';
 import Image from 'next/image'
 
 import Contact from './contact';

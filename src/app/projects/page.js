@@ -1,48 +1,20 @@
-'use client'
+'use client';
+
+import * as React from "react";
 
 import { Container } from '@mui/material';
 
-import Intro from '@/app/Intro';
-import About from '@/app/About';
-import Experience from "@/app/Experience";
 import Project from "@/app/Project";
-import Blog from "@/app/Blog";
-
 import ScrollToTop from "@/components/ScrollToTop";
-import * as React from "react";
 
-export default function Home() {
+export default function Blogs() {
     return (
         <Container maxWidth="xl" className='mt-20'>
             <ScrollToTop />
-            <Intro />
-            <hr className={'mb-24'}/>
-            <About />
-            <hr className={'mb-24'}/>
-            <Experience />
-            <hr className={'mb-24'}/>
-            <Project projects={projects}/>
-            <hr className={'mb-24'}/>
-            <Blog blogs={blogs}/>
+            <Project projects={projects} viewAllProjects={false} search={true}/>
         </Container>
     )
 }
-
-const blogs = [
-    {
-        title: "SUP admin portal startup time reduction",
-        link: "/blogs/sup-startup-decrease",
-        icon: "",
-        description: (
-            <>
-                <p>
-                    A case study on how I&#39;ve managed to reduce startup time of SUP Eco App&#39;s React front-end from <b>10 minutes</b> to <b>10 seconds</b>
-                </p>
-            </>
-        ),
-        technologies: ["Electron"],
-    },
-]
 
 const projects = [
     {
