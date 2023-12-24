@@ -1,6 +1,6 @@
 'use client'
 
-import { Container } from '@mui/material';
+import {Container} from '@mui/material';
 
 import Intro from '@/app/Intro';
 import About from '@/app/About';
@@ -10,21 +10,25 @@ import Blog from "@/app/Blog";
 
 import ScrollToTop from "@/components/ScrollToTop";
 import * as React from "react";
+import NavBar from "@/components/Navbar";
 
 export default function Home() {
     return (
-        <Container maxWidth="xl" className='mt-20'>
-            <ScrollToTop />
-            <Intro />
-            <hr className={'mb-24'}/>
-            <About />
-            <hr className={'mb-24'}/>
-            <Experience />
-            <hr className={'mb-24'}/>
-            <Project projects={projects}/>
-            <hr className={'mb-24'}/>
-            <Blog blogs={blogs}/>
-        </Container>
+        <>
+            <NavBar pages={navbarPages}/>
+            <Container maxWidth="xl" className='mt-20'>
+                <ScrollToTop/>
+                <Intro/>
+                <hr className={'mb-24'}/>
+                <About/>
+                <hr className={'mb-24'}/>
+                <Experience/>
+                <hr className={'mb-24'}/>
+                <Project projects={projects}/>
+                <hr className={'mb-24'}/>
+                <Blog blogs={blogs}/>
+            </Container>
+        </>
     )
 }
 
@@ -36,7 +40,8 @@ const blogs = [
         description: (
             <>
                 <p>
-                    A case study on how I&#39;ve managed to reduce startup time of SUP Eco App&#39;s React front-end from <b>10 minutes</b> to <b>10 seconds</b>
+                    A case study on how I&#39;ve managed to reduce startup time of SUP Eco App&#39;s React front-end
+                    from <b>10 minutes</b> to <b>10 seconds</b>
                 </p>
             </>
         ),
@@ -90,3 +95,10 @@ const projects = [
         technologies: ["React Native"],
     }
 ]
+
+const navbarPages = [
+    {title: 'About', url: '#about'},
+    {title: 'Experience', url: '#experience'},
+    {title: 'Project', url: '#project'},
+    {title: 'Blog', url: '#blog'}
+];

@@ -4,13 +4,6 @@ import {AppBar, Box, Toolbar, Container, createTheme} from '@mui/material';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import NavbarMenu from './NavbarMenu';
 
-const pages = [
-    {title: 'About', url: '#about'},
-    {title: 'Experience', url: '#experience'},
-    {title: 'Project', url: '#project'},
-    {title: 'Blog', url: '#blog'}
-];
-
 const navbarTheme = createTheme({
     components: {
         MuiAppBar: {
@@ -23,7 +16,7 @@ const navbarTheme = createTheme({
     }
 });
 
-function NavBar() {
+function NavBar({pages}) {
     return (
         <AppBar position="sticky" className={'bg-gray-50 dark:bg-gray-950 dark:text-black'} sx={{boxShadow: 'none'}}
                 theme={navbarTheme}>

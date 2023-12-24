@@ -2,7 +2,6 @@ import {Quicksand} from 'next/font/google';
 
 import './globals.css';
 
-import NavBar from "@/components/Navbar";
 import {ThemeProvider} from "@/components/ThemeProvider";
 
 const quickSand = Quicksand({subsets: ['latin'], variable: '--font-quick-sand', weight: '400', display: 'swap'})
@@ -20,7 +19,6 @@ export default function RootLayout({children}) {
         </head>
         <body className={`${quickSand.className} bg-white dark:bg-black dark:text-white`}>
             <ThemeProvider attribute={'class'}>
-                <NavBar/>
                 {children}
             </ThemeProvider>
         </body>

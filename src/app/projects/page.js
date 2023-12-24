@@ -2,17 +2,21 @@
 
 import * as React from "react";
 
-import { Container } from '@mui/material';
+import {Container} from '@mui/material';
 
 import Project from "@/app/Project";
 import ScrollToTop from "@/components/ScrollToTop";
+import NavBar from "@/components/Navbar";
 
 export default function Blogs() {
     return (
-        <Container maxWidth="xl" className='mt-20'>
-            <ScrollToTop />
-            <Project projects={projects} viewAllProjects={false} search={true}/>
-        </Container>
+        <>
+            <NavBar pages={navbarPages}/>
+            <Container maxWidth="xl" className='mt-20'>
+                <ScrollToTop/>
+                <Project projects={projects} viewAllProjects={false} search={true}/>
+            </Container>
+        </>
     )
 }
 
@@ -62,3 +66,5 @@ const projects = [
         technologies: ["React Native"],
     }
 ]
+
+const navbarPages = [];
