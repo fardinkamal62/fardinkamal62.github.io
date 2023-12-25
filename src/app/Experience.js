@@ -21,9 +21,10 @@ const tabs = [
     }
 ];
 
-export default function Experience() {
+export default function Experience({ toolXp, workXp }) {
     const [tabIndex, setTabIndex] = useState(0);
     const [toolExperience, setToolExperience] = useState({});
+    const [workExperience, setWorkExperience] = useState([]);
 
     const handleTabIndexChange = (index) => {
         setTabIndex(index);
@@ -52,10 +53,9 @@ export default function Experience() {
     };
 
     useEffect(() => {
-        api.post('', {_key: 'about:experience:tools'}).then(res => {
-            setToolExperience(res[0])
-        }).catch(err => console.log(err));
-    }, []);
+        setToolExperience(toolXp);
+        setWorkExperience(workXp);
+    }, [toolXp, workXp]);
 
     return (
         <Container className={'mb-24'} id={'experience'}>
@@ -74,181 +74,6 @@ export default function Experience() {
         </Container>
     );
 }
-
-const workExperience = [
-    {
-        title: 'Software Developer',
-        company: 'DeepThought Growth Management System',
-        duration: ['19 November 2022 UTC+6', ''],
-        url: 'https://deepthought.education',
-        description: (<div>
-            <p>Software Developer at <a href={'https://deepthought.education'} target={'_blank'}
-                                        className={'underline hover:text-blue-500'}>DeepThought Growth Management
-                System</a></p>
-            <p><b>Type</b>: Part-Time</p>
-            <p><b>Duration</b>: 19 November 2022 - Present</p>
-            <br/>
-            <p className={'text-3xl mb-2'}>Projects</p>
-            <ul className={'p-2'}><b>DTthon:</b>
-                <ul>
-                    - Implemented essential features, including duplication of courses and
-                    projects, and enhanced the selection process.
-                </ul>
-                <ul>- Addressed backend issues and resolved bugs, ensuring smooth
-                    functionality.
-                </ul>
-            </ul>
-
-            <ul className={'p-2'}><b>John Dewey Peer Learning System (JD-PLS):</b>
-                <ul> - Spearheaded the development of a robust Peer Learning System, serving
-                    as the product manager.
-                </ul>
-                <ul> - Established the foundation of the system, enabling students to
-                    provide feedback and evaluate their peers.
-                </ul>
-            </ul>
-
-            <ul className={'p-2'}><b>Observation Panel:</b>
-                <ul> - Optimized the backend infrastructure.</ul>
-            </ul>
-            <ul className={'p-2'}><b>Builders: </b>
-                <ul>- Led the development of the Rigor &amp; Maturity builder, overseeing the
-                    product management aspects.
-                </ul>
-                <ul>- Played a crucial role in delivering a comprehensive tool for improving
-                    project quality and maturity.
-                </ul>
-            </ul>
-            <br/>
-            <p className={'text-3xl mb-2'}>Leadership</p>
-            <div className={'p-2'}>
-                <p>Throughout my career, I have displayed exemplary
-                    leadership skills in diverse teams comprising both technical and
-                    non-technical professionals. <br/>
-                    Notable leadership roles include:</p>
-                <ul>- Team Leader:
-                    <ul>- Rigor Lab</ul>
-                    <ul>- Career Acceleration Lab</ul>
-                </ul>
-                <ul>- Assistant Team Leader:
-                    <ul>- Center of Excellence Lab</ul>
-                    <ul>- Career Progression Lab</ul>
-                </ul>
-                <p></p>
-            </div>
-            <br/>
-            <p className={'text-3xl'}>Mentorship:</p>
-            <div className={'p-2'}>
-                I have had the privilege of mentoring <b>2</b> individuals,
-                guiding them to become proficient backend developers and assisting them in
-                adapting to the platform.
-            </div>
-            <br/>
-            <p className={'text-3xl'}>Others:</p>
-            <div className={'p-2'}>
-                <ul>- Actively participated in Socratic Dialogue questioning sessions, fostering
-                    intellectual discussions and collaborative problem-solving
-                </ul>
-                <ul>- Engaged in the Leadership Development Initiative (LDI) events, enhancing
-                    my
-                    leadership skills and promoting professional growth
-                </ul>
-                <ul>- Conducted regular workshops on various topics such as Linux,
-                    authentication,
-                    HTTP caching, PWA, software development, and project management, empowering
-                    individuals with valuable knowledge and practical skills
-                </ul>
-            </div>
-        </div>)
-    },
-    {
-        title: 'Software Developer',
-        company:
-            'SUP Eco App',
-        duration:
-            ['20 February 2022 UTC+6', '20 July 2022 UTC+6'],
-        url:
-            'https://deepthought.education',
-        type:
-            'Part-Time',
-        description: (<div>
-            <p>Software Developer at <a href={'https://supapp.in/'} target={'_blank'}
-                                        className={'underline hover:text-blue-500'}>SUP Eco App
-                System</a></p>
-            <p><b>Type</b>: Part-Time</p>
-            <p><b>Duration</b>: 19 November 2022 - Present</p>
-            <br/>
-            <p>Client company of DeepThought</p>
-            <br/>
-            Key achievements include:
-            <ul className={'list-decimal list-inside ml-5 p-2'}>
-                <li>Reduced the admin panel startup time from <b>10 minutes</b> to <b>10 seconds</b> by resolving
-                    critical errors.
-                </li>
-                <li>Streamlining the backend of the &#34;Wish List&#34; project to improve user experience</li>
-                <li>Enhancing user onboarding for the &#34;Referral&#34; project by optimizing backend processes</li>
-                <li>Developing the &#34;Organization&#34; entity, enabling smooth management and onboarding of
-                    organizations
-                    for SUP.
-                </li>
-                <li>Creating the &#34;Eco Hub&#34; control panel, facilitating efficient organization management.</li>
-            </ul>
-            <br/>
-            <p className={'text-3xl'}>Mentorship</p>
-            <p className={'p-2'}>
-                Helped their intern to improve their technical &amp; leadership skills
-            </p>
-        </div>)
-    },
-    {
-        title: 'Software Developer Intern',
-        company:
-            'DeepThought Growth Management System',
-        duration:
-            ['08 June 2022 UTC+6', '09 October 2022 UTC+6'],
-        url:
-            'https://deepthought.education',
-        type:
-            'Part-Time',
-        description: (<div>
-            <p>Software Developer Intern at <a href={'https://deepthought.education'} target={'_blank'}
-                                               className={'underline hover:text-blue-500'}>DeepThought Growth Management
-                System</a></p>
-            <p><b>Type</b>: Part-Time</p>
-            <p><b>Duration</b>: 08 June 2022 - 09 October 2022</p>
-            <br/>
-
-            <p className={'text-3xl mb-2'}>Projects</p>
-            <div className={'p-2'}>
-                <ul className={'list-disc list-item list-inside'}>
-                    <b>DeepThought Marketplace </b>
-                    DT ecosystem Marketplace from scratch with virtual
-                    currency system as well as sub-market facility
-                </ul>
-
-                <ul className={'list-disc list-item list-inside'}>
-                    <b>DeepThought Profile Page </b>
-                    DT Student &amp; Parents account profile page. Worked on
-                    existing Profile Page project to bug fix &amp; add small
-                    improvements
-                </ul>
-
-                <ul className={'list-disc list-item list-inside'}>
-                    <b>DeepThought CPaaS </b>
-                    Communication Platform as a Service; used to communicate
-                    outside of DT ecosystem. Can be used to send
-                    email/SMS/WhatsApp messages. Actively used by
-                    DeepThought DTThon project to send emails to applicants.
-                </ul>
-            </div>
-            <p className={'text-3xl my-2'}>Mentorship</p>
-            <p className={' p-2'}>
-                Mentored one person to become better
-                backend developer and get used to our codebase.
-            </p>
-        </div>)
-    }
-];
 
 /**
  * @function maximum

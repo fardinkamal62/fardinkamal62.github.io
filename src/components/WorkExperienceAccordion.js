@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Accordion, AccordionSummary, AccordionDetails} from '@mui/material';
+import {Accordion, AccordionSummary, AccordionDetails, Skeleton} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function Accordions({contents}) {
@@ -16,7 +16,7 @@ export default function Accordions({contents}) {
                         <div>{content.title} | {content.company} | {getTimeDiff(content.duration[0], content.duration[1])}</div>
                     </AccordionSummary>
                     <AccordionDetails className={'dark:bg-black'}>
-                        <div>{content.description}</div>
+                        {content ? <div dangerouslySetInnerHTML={{__html: content.description}}/> : <div><Skeleton variant="rounded" width={'100%'} height={50} className={'dark:bg-gray-500'}/><br/> <Skeleton variant="rounded" width={'80%'} height={30} className={'dark:bg-gray-500'}/></div>}
                     </AccordionDetails>
                 </Accordion>))}
         </div>

@@ -19,6 +19,8 @@ export default function Home() {
     const [tagline, setTagline] = useState('');
     const [description, setDescription] = useState('');
     const [oneLiner, setOneLiner] = useState('');
+    const [toolExperience, setToolExperience] = useState({});
+    const [workExperience, setWorkExperience] = useState([]);
 
     useEffect(() => {
         const homepageData = [
@@ -43,6 +45,14 @@ export default function Home() {
             }).catch((err) => {
                 console.log(err)
             }),
+
+            api.post('', {_key: 'about:experience:tools'}).then(res => {
+                setToolExperience(res[0])
+            }).catch(err => console.log(err)),
+
+            api.post('', {_key: 'about:experience:work'}).then(res => {
+                setWorkExperience(res[0].content)
+            }).catch(err => console.log(err)),
         ]
         Promise.all(homepageData).catch(err => {
             console.log(err)
@@ -58,7 +68,7 @@ export default function Home() {
                 <hr className={'mb-24'}/>
                 <About desc={description} oneLine={oneLiner}/>
                 <hr className={'mb-24'}/>
-                <Experience/>
+                <Experience toolXp={toolExperience} workXp={workExperience}/>
                 <hr className={'mb-24'}/>
                 <Project projects={projects}/>
                 <hr className={'mb-24'}/>
