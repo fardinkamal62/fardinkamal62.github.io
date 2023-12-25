@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import {Box, Container} from "@mui/material";
 import Cards from "@/components/Cards";
@@ -15,6 +15,10 @@ export default function Blog({blogs, viewAllBlogs = true, search = false}) {
             return blog.title.toLowerCase().includes(value.toLowerCase()) || blog.technologies.join(' ').toLowerCase().includes(value.toLowerCase())
         }))
     }
+
+    useEffect(() => {
+        setContent(blogs);
+    }, [blogs]);
 
     return (
         <Container className={'mb-24'} id={'blog'}>

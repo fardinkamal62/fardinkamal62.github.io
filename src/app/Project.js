@@ -1,9 +1,9 @@
+import React, {useEffect, useState} from "react";
 import {Box, Container} from "@mui/material";
 import Cards from "@/components/Cards";
 import {ArrowOutward} from "@mui/icons-material";
-import * as React from "react";
+
 import Search from "@/components/Search";
-import {useState} from "react";
 
 export default function Project({projects, viewAllProjects = true, search = false}) {
     const [content, setContent] = useState(projects)
@@ -14,6 +14,10 @@ export default function Project({projects, viewAllProjects = true, search = fals
             return project.title.toLowerCase().includes(value.toLowerCase()) || project.technologies.join(' ').toLowerCase().includes(value.toLowerCase())
         }))
     }
+
+    useEffect(() => {
+        setContent(projects);
+    }, [projects]);
 
     return (
         <Container className={'mb-24'} id={'project'}>

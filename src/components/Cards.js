@@ -12,7 +12,8 @@ export default function Cards({contents, classes}) {
                 <CardContent>
                     <div>
                         <h2 className={'text-2xl font-bold'}>{content.title}</h2>
-                        <div>{content.description}</div>
+                        {/*<div>{content.description}</div>*/}
+                        <div dangerouslySetInnerHTML={{__html: content.description}}/>
                     </div>
                 </CardContent>
                 <CardActions className={'flex justify-center bottom-0'}>

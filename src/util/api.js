@@ -1,6 +1,6 @@
 const api = module.exports;
 
-const API_URL = process.env.API_URL;
+const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 /**
  * @function get
@@ -10,8 +10,7 @@ const API_URL = process.env.API_URL;
  */
 api.get = async (route) => {
     try {
-
-        return fetch(API_URL + route).then((res) => {
+        return fetch(NEXT_PUBLIC_API_URL + route).then((res) => {
             return res.json();
         }).catch((err) => {
             console.log(err);
@@ -30,20 +29,17 @@ api.get = async (route) => {
  * @param data{object}
  * @return {Promise<any>}
  */
-api.post = (route, data = {}) => {
+api.post = async (route, data = {}) => {
     try {
-        return fetch(API_URL + route, {
+        const request = await fetch(NEXT_PUBLIC_API_URL + route, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             },
-        }).then((res) => {
-            return res.json();
-        }).catch((err) => {
-            console.log(err);
-            throw new Error('Failed to fetch data from API' + err);
-        });
+        })
+
+        return await request.json();
     } catch (e) {
         console.log(e);
         throw new Error('Failed to fetch data from API' + e);

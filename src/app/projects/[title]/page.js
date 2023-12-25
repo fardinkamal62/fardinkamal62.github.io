@@ -11,7 +11,7 @@ import api from "@/util/api";
 
 
 export default function Projects({params}) {
-    api.post('/projects', {}).then(res => console.log(res)).catch(err => console.log(err));
+    api.post('/projects', { _key: 'project' }).then(res => console.log(res)).catch(err => console.log(err));
     return (
         <>
             <NavBar pages={navbarPages}/>

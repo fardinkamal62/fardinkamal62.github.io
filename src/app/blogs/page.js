@@ -1,14 +1,21 @@
 'use client';
 
-import * as React from "react";
+import {useState, useEffect} from "react";
 
 import {Container} from '@mui/material';
 
 import Blog from "@/app/Blog";
 import ScrollToTop from "@/components/ScrollToTop";
 import NavBar from "@/components/Navbar";
+import api from "@/util/api";
 
 export default function Blogs() {
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+      api.post('/', {_key: 'blog:short'}).then(res => setBlogs(res)).catch(err => console.log(err));
+    }, []);
+
     return (
         <>
             <NavBar pages={navbarPages}/>
