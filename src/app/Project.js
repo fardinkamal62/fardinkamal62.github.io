@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Box, Container} from "@mui/material";
+import {Box, Container, Skeleton} from "@mui/material";
 import Cards from "@/components/Cards";
 import {ArrowOutward} from "@mui/icons-material";
 
@@ -27,7 +27,7 @@ export default function Project({projects, viewAllProjects = true, search = fals
                 </div>
                 {search ? <Search pageName={'Projects'} content={projects} handleChange={handleChange}/> : null}
                 <div className='mt-10 grid grid-cols-2'>
-                    <Cards contents={content} classes={'mx-4 text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}/>
+                    {projects.length !== 0 ? <Cards contents={content} classes={'mx-4 text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}/> : <Skeleton variant="rounded" width={'100%'} height={30} className={'dark:bg-gray-500'}/> }
                 </div>
                 {viewAllProjects ? <div className={'flex justify-center mt-12'}>
                     <button

@@ -16,10 +16,37 @@ import api from "@/util/api";
 export default function Home() {
     const [projects, setProjects] = useState([]);
     const [blogs, setBlogs] = useState([]);
+    const [tagline, setTagline] = useState('');
+    const [description, setDescription] = useState('');
+    const [oneLiner, setOneLiner] = useState('');
 
     useEffect(() => {
-        api.post('/', {_key: 'project:short'}).then(res => setProjects(res)).catch(err => console.log(err));
-        api.post('/', {_key: 'blog:short'}).then(res => setBlogs(res)).catch(err => console.log(err));
+        const homepageData = [
+            api.post('/', {_key: 'project:short'}).then(res => setProjects(res)).catch(err => console.log(err)),
+
+            api.post('/', {_key: 'blog:short'}).then(res => setBlogs(res)).catch(err => console.log(err)),
+
+            api.post('/', {_key: "about:tagline"}).then((res) => {
+                setTagline(res[0].content)
+            }).catch((err) => {
+                console.log(err)
+            }),
+
+            api.post('', {_key: "about:oneliner"}).then((res) => {
+                setOneLiner(res[0].content)
+            }).catch((err) => {
+                console.log(err)
+            }),
+
+            api.post('', {_key: "about:description"}).then((res) => {
+                setDescription(res[0].content)
+            }).catch((err) => {
+                console.log(err)
+            }),
+        ]
+        Promise.all(homepageData).catch(err => {
+            console.log(err)
+        })
     }, [])
 
     return (
@@ -27,9 +54,9 @@ export default function Home() {
             <NavBar pages={navbarPages}/>
             <Container maxWidth="xl" className='mt-20'>
                 <ScrollToTop/>
-                <Intro/>
+                <Intro tag={tagline}/>
                 <hr className={'mb-24'}/>
-                <About/>
+                <About desc={description} oneLine={oneLiner}/>
                 <hr className={'mb-24'}/>
                 <Experience/>
                 <hr className={'mb-24'}/>
