@@ -2,11 +2,19 @@ import {Box, Container, Link, Grid} from '@mui/material';
 import Image from 'next/image'
 
 import Contact from './contact';
+import {useEffect, useState} from "react";
+import api from "@/util/api";
 
 export default function Intro() {
-    const tagline = () => {
-        return <h5 className='text-xl'>Developing tech to help people grow at <Link href={'https://deepthought.education'} target={'_blank'}>DeepThought</Link></h5>
-    };
+    const [tagline, setTagline] = useState('');
+
+    useEffect(() => {
+        api.post('/', {_key: "about:tagline"}).then((res) => {
+            setTagline(res[0].content);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }, []);
 
     return (
         <Container className={'mb-24'}>
@@ -18,7 +26,7 @@ export default function Intro() {
                     </Grid>
                     <Grid item className='m-0 sm:mt-10 text-center'>
                         <h3 className='text-3xl font-bold'>Fardin Kamal</h3>
-                        {tagline()}
+                        <div dangerouslySetInnerHTML={{__html: tagline}}></div>
                         <Contact/>
                     </Grid>
                 </div>

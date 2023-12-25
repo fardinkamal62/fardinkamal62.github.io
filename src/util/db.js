@@ -11,8 +11,13 @@ const {db} = await connectToDatabase();
  * @return {Promise<*>}
  */
 export async function get(collection = 'data', query = {}, limit = 10) {
+    const projection = {
+        _id: 0,
+        _key: 0
+    };
+
     try {
-        return await db.collection(collection).find(query).limit(limit).toArray()
+        return await db.collection(collection).find(query).project(projection).limit(limit).toArray()
     } catch (e) {
         console.log(e);
         throw new Error('Failed to fetch data from database' + e);

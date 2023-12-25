@@ -1,11 +1,12 @@
 'use client';
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Box, Container} from '@mui/material';
 import {Business, Construction} from "@mui/icons-material";
 
 import TabComponent from "@/components/Tabs";
 import Accordion from '@/components/WorkExperienceAccordion';
+import api from "@/util/api";
 
 const tabs = [
     {
@@ -22,6 +23,7 @@ const tabs = [
 
 export default function Experience() {
     const [tabIndex, setTabIndex] = useState(0);
+    const [toolExperience, setToolExperience] = useState({});
 
     const handleTabIndexChange = (index) => {
         setTabIndex(index);
@@ -49,6 +51,12 @@ export default function Experience() {
         return <Accordion contents={workExperience}/>;
     };
 
+    useEffect(() => {
+        api.post('', {_key: 'about:experience:tools'}).then(res => {
+            setToolExperience(res[0])
+        }).catch(err => console.log(err));
+    }, []);
+
     return (
         <Container className={'mb-24'} id={'experience'}>
             <Box>
@@ -66,27 +74,6 @@ export default function Experience() {
         </Container>
     );
 }
-
-const toolExperience = {
-    oneYear: [
-        {label: 'JavaScript', hasIndustryExperience: true},
-        {label: 'Node.JS', hasIndustryExperience: true},
-        {label: 'MongoDB', hasIndustryExperience: true},
-        {label: 'Linux', hasIndustryExperience: false}
-    ],
-    sixMonths: [
-        {label: 'React', hasIndustryExperience: true},
-        {label: 'PHP', hasIndustryExperience: false}
-    ],
-    basics: [
-        {label: 'Next.JS', hasIndustryExperience: false},
-        {label: 'TailwindCSS', hasIndustryExperience: false},
-        {label: 'React Native (Expo)', hasIndustryExperience: false},
-        {label: 'Java', hasIndustryExperience: false},
-        {label: 'Python', hasIndustryExperience: false},
-        {label: 'MySQL', hasIndustryExperience: false}
-    ]
-};
 
 const workExperience = [
     {
@@ -200,7 +187,8 @@ const workExperience = [
                 </li>
                 <li>Streamlining the backend of the &#34;Wish List&#34; project to improve user experience</li>
                 <li>Enhancing user onboarding for the &#34;Referral&#34; project by optimizing backend processes</li>
-                <li>Developing the &#34;Organization&#34; entity, enabling smooth management and onboarding of organizations
+                <li>Developing the &#34;Organization&#34; entity, enabling smooth management and onboarding of
+                    organizations
                     for SUP.
                 </li>
                 <li>Creating the &#34;Eco Hub&#34; control panel, facilitating efficient organization management.</li>
