@@ -24,9 +24,12 @@ export default function Home() {
 
     useEffect(() => {
         const homepageData = [
-            api.post('/', {_key: 'project:short'}).then(res => setProjects(res)).catch(err => console.log(err)),
+            api.post('/', {
+                _key: 'project:short',
+                limit: 2
+            }).then(res => setProjects(res)).catch(err => console.log(err)),
 
-            api.post('/', {_key: 'blog:short'}).then(res => setBlogs(res)).catch(err => console.log(err)),
+            api.post('/', {_key: 'blog:short', limit: 2}).then(res => setBlogs(res)).catch(err => console.log(err)),
 
             api.post('/', {_key: "about:tagline"}).then((res) => {
                 setTagline(res[0].content)

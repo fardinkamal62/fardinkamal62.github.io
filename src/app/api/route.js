@@ -1,9 +1,11 @@
 import * as database from '@/util/db'
 
 export async function POST(req) {
-    const body = await req.json();
+    const body = await req.json() || {};
+    const limit = parseInt(body.limit) || 10;
+
     try {
-        const data = await database.get('data', body, 10);
+        const data = await database.get('data', { _key: body._key}, limit);
 
         return new Response(JSON.stringify(data), {
             status: 200,

@@ -1,7 +1,7 @@
 import {ThemeProvider} from "@/components/ThemeProvider";
 
 export const metadata = {
-    title: 'Blogs',
+    title: 'Blogs | Fardin Kamal',
     description: 'Blogs of Fardin Kamal',
 }
 
