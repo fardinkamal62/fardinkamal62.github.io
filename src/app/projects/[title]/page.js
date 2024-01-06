@@ -1,8 +1,8 @@
-import ProjectsPage from "@/app/projects/[title]/ProjectsPage";
+import ProjectsPage from "./ProjectsPage";
 import api from "@/util/api";
 
-export async function generateMetadata(props) {
-    const {title} = props.params;
+export async function generateMetadata({params}) {
+    const {title} = params;
 
     const project = await api.post('/', { _key: `project:${title}` })
     return {
