@@ -10,15 +10,20 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
  */
 api.get = async (route) => {
     try {
-        return fetch(NEXT_PUBLIC_API_URL + route).then((res) => {
-            return res.json();
-        }).catch((err) => {
-            console.log(err);
-            throw new Error('Failed to fetch data from API' + err);
-        });
+        return fetch(NEXT_PUBLIC_API_URL + route)
+            .then((res) => {
+                res.json();
+            })
+            .then((data) => {
+                return data;
+            })
+            .catch((err) => {
+                console.error(err);
+                throw new Error('Failed to fetch data from API ' + err);
+            });
     } catch (e) {
-        console.log(e);
-        throw new Error('Failed to fetch data from API' + e);
+        console.error(e);
+        throw new Error('Failed to fetch data from API ' + e);
     }
 };
 
