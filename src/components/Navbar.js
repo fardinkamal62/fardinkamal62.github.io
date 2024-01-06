@@ -9,7 +9,7 @@ const navbarTheme = createTheme({
         MuiAppBar: {
             styleOverrides: {
                 colorPrimary: {
-                    backgroundColor: "transparent"
+                    backgroundColor: "rgb(249 250 251/var(--tw-bg-opacity))"    // TODO Temporary fix for transparent navbar
                 }
             }
         }
