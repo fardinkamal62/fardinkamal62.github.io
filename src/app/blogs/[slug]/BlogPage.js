@@ -11,17 +11,17 @@ import api from "@/util/api";
 
 
 export default function ProjectsPage({params}) {
-    const {title} = params;
+    const {slug} = params;
 
     const [navbarPages, setNavbarPages] = useState([]);
     const [blog, setBlog] = useState({});
 
     useEffect(() => {
-        api.post('/', { _key: `blog:${title}` }).then(res => {
+        api.post('/', { _key: `blog:${slug}` }).then(res => {
             setBlog(res[0]);
             setNavbarPages(res[0].navbar);
         }).catch(err => console.log(err));
-    }, [title]);
+    }, [slug]);
     return (
         <>
             <NavBar pages={navbarPages}/>
