@@ -7,7 +7,7 @@ import {Container} from '@mui/material';
 import ScrollToTop from "@/components/ScrollToTop";
 import NavBar from "@/components/Navbar";
 
-import api from "@/util/api";
+import * as api from "@/util/api";
 
 
 export default function ProjectsPage({params}) {

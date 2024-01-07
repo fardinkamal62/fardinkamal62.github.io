@@ -1,4 +1,4 @@
-const api = module.exports;
+import axios from 'axios';
 
 const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -8,7 +8,7 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
  * @param route{string}
  * @return {Promise<any>}
  */
-api.get = async (route) => {
+export async function get (route) {
     try {
         return fetch(NEXT_PUBLIC_API_URL + route)
             .then((res) => {
@@ -34,17 +34,12 @@ api.get = async (route) => {
  * @param data{object}
  * @return {Promise<any>}
  */
-api.post = async (route = '/', data = {}) => {
-    try {
-        const request = await fetch(NEXT_PUBLIC_API_URL + route, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
 
-        return await request.json();
+export async function post(route = '/', data = {}){
+    try {
+        const request = await axios.post(NEXT_PUBLIC_API_URL + route, data);
+
+        return await request.data;
     } catch (e) {
         console.log(e);
         throw new Error('Failed to fetch data from API' + e);

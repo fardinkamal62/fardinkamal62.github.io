@@ -1,5 +1,5 @@
 import ProjectsPage from "./ProjectsPage";
-import api from "@/util/api";
+import * as api from "@/util/api";
 
 export async function generateMetadata({params}) {
     const {slug} = params;
