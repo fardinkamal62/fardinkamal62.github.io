@@ -1,3 +1,5 @@
+'use client';
+
 import ProjectsPage from "./ProjectsPage";
 import api from "@/util/api";
 
