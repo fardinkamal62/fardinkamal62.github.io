@@ -10,7 +10,7 @@ export async function POST(req) {
         return new Response(JSON.stringify(data), {
             status: 200,
             statusText: 'OK',
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json', "Accept-Encoding": "identity" }
         })
     } catch (e) {
         console.log(e);
