@@ -34,7 +34,7 @@ api.get = async (route) => {
  * @param data{object}
  * @return {Promise<any>}
  */
-api.post = async (route, data = {}) => {
+api.post = async (route = '/', data = {}) => {
     try {
         const request = await fetch(NEXT_PUBLIC_API_URL + route, {
             method: 'POST',
