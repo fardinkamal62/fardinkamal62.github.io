@@ -27,7 +27,7 @@ export default function Home() {
             api.post('/', {
                 _key: 'project:short',
                 limit: 2
-            }).then(res => console.log(res)).catch(err => console.log(err)),
+            }).then(res => setProjects(res)).catch(err => console.log(err)),
 
             api.post('/', {_key: 'blog:short', limit: 2}).then(res => setBlogs(res)).catch(err => console.log(err)),
 
