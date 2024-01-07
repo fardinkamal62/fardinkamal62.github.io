@@ -6,7 +6,7 @@ import {Business, Construction} from "@mui/icons-material";
 
 import TabComponent from "@/components/Tabs";
 import Accordion from '@/components/WorkExperienceAccordion';
-import api from "@/util/api";
+import * as api from "@/util/api";
 
 const tabs = [
     {

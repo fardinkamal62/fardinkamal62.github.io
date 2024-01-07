@@ -1,5 +1,5 @@
 import BlogPage from "./BlogPage";
-import api from "@/util/api";
+import * as api from "@/util/api";
 
 export async function generateMetadata({params}) {
     const {slug} = params;

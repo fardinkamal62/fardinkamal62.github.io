@@ -7,7 +7,7 @@ import {Container} from '@mui/material';
 import Project from "@/app/Project";
 import ScrollToTop from "@/components/ScrollToTop";
 import NavBar from "@/components/Navbar";
-import api from "@/util/api";
+import * as api from "@/util/api";
 
 export default function Projects() {
     const [projects, setProjects] = useState([]);

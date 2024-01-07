@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Box, Container, Skeleton} from '@mui/material';
-import api from "@/util/api";
+import * as api from "@/util/api";
 
 export default function About({ oneLine, desc }) {
     const [oneLiner, setOneLiner] = useState('');

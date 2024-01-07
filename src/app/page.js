@@ -11,7 +11,7 @@ import Blog from "@/app/Blog";
 import ScrollToTop from "@/components/ScrollToTop";
 import React, {useEffect, useState} from "react";
 import NavBar from "@/components/Navbar";
-import api from "@/util/api";
+import * as api from "@/util/api";
 
 export default function Home() {
     const [projects, setProjects] = useState([]);
@@ -27,7 +27,7 @@ export default function Home() {
             api.post('/', {
                 _key: 'project:short',
                 limit: 2
-            }).then(res => setProjects(res)).catch(err => console.log(err)),
+            }).then(res => console.log(res)).catch(err => console.log(err)),
 
             api.post('/', {_key: 'blog:short', limit: 2}).then(res => setBlogs(res)).catch(err => console.log(err)),
 
