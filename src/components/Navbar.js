@@ -30,7 +30,7 @@ function NavBar({pages}) {
                         ))}
                     </Box>
                     <ThemeSwitch/>
-                    <NavbarMenu pages={pages}/>
+                    {pages.length > 0 && <NavbarMenu pages={pages}/>}
                 </Toolbar>
             </Container>
         </AppBar>
