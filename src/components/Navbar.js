@@ -3,6 +3,7 @@
 import {AppBar, Box, Toolbar, Container, createTheme} from '@mui/material';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import NavbarMenu from './NavbarMenu';
+import Link from "next/link";
 
 const navbarTheme = createTheme({
     components: {
@@ -22,11 +23,11 @@ function NavBar({pages}) {
                 theme={navbarTheme}>
             <Container maxWidth="xl">
                 <Toolbar className={'text-gray-700 dark:text-gray-400'}>
-                    <a href='/' className={`text-4xl`} style={{textDecoration: 'none'}}>{'{~,~}'}</a>
+                    <Link href='/' className={`text-4xl`} style={{textDecoration: 'none'}}>{'{~,~}'}</Link>
                     <Box sx={{flexGrow: 100}}></Box>
                     <Box className={'flex sm:hidden md:flex'}>
                         {pages.map((page, index) => (
-                            <a href={page.url} key={index} className={`text-lg mx-2 decoration-0`}>{page.title}</a>
+                            <Link href={page.url} key={index} className={`text-lg mx-2 decoration-0`}>{page.title}</Link>
                         ))}
                     </Box>
                     <ThemeSwitch/>

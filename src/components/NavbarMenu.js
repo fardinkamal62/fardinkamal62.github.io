@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {IconButton, Menu, MenuItem} from '@mui/material';
 import {Menu as MenuIcon} from '@mui/icons-material';
+import Link from "next/link";
 
 export default function NavbarMenu({pages}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,7 +35,7 @@ export default function NavbarMenu({pages}) {
                 onClose={handleClose}>
                 {pages.map((page, index) => (
                     <MenuItem key={index} onClick={handleClose}>
-                        <a href={page.url} key={index}>{page.title}</a>
+                        <Link href={page.url} key={index}>{page.title}</Link>
                     </MenuItem>
                 ))}
             </Menu>

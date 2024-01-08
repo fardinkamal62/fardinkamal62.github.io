@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {Box, Container, Skeleton} from "@mui/material";
 import Cards from "@/components/Cards";
 import {ArrowOutward} from "@mui/icons-material";
+import Link from "next/link";
 
 import Search from "@/components/Search";
 
@@ -34,7 +35,7 @@ export default function Blog({blogs, viewAllBlogs = true, search = false}) {
                 {viewAllBlogs ? <div className={'flex justify-center mt-12'}>
                     <button
                         className={'bg-gray-50 dark:bg-gray-950 dark:text-white text-black px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900'}>
-                        <a href={'/blogs'}>View All Blogs <ArrowOutward/></a>
+                        <Link href={'/blogs'}>View All Blogs <ArrowOutward/></Link>
                     </button>
                 </div> : null}
             </Box>

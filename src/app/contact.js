@@ -1,5 +1,6 @@
 import { Container, Grid, Box } from "@mui/material";
 import { LinkedIn, Mail, GitHub } from "@mui/icons-material";
+import Link from "next/link";
 
 export default function Contact() {
     return (
@@ -7,13 +8,13 @@ export default function Contact() {
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container>
                     <Grid item xs>
-                        <a href="https://www.linkedin.com/in/fardinkamal62/" target="_blank" rel="noopener noreferrer" className="mr-5">
+                        <Link href="https://www.linkedin.com/in/fardinkamal62/" target="_blank" rel="noopener noreferrer" className="mr-5">
                             <LinkedIn className="text-4xl" />
-                        </a>
-                        <a href="mailto:fardinkamal62@protonmail.ch"><Mail className="text-4xl"></Mail></a>
-                        <a href="https://github.com/fardinkamal62" target="_blank" rel="noopener noreferrer" className="ml-5">
+                        </Link>
+                        <Link href="mailto:fardinkamal62@protonmail.ch"><Mail className="text-4xl"></Mail></Link>
+                        <Link href="https://github.com/fardinkamal62" target="_blank" rel="noopener noreferrer" className="ml-5">
                             <GitHub className="text-4xl" />
-                        </a>
+                        </Link>
                     </Grid>
                 </Grid>
             </Box>
