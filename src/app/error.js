@@ -17,7 +17,6 @@ export default function Error({error}) {
             <Container sx={{ marginTop: '10%' }}>
                 <div className='flex flex-col items-center'>
                     <p className={'md:text-3xl text-xl mb-2'}>Something Went Wrong</p>
-                    <p className={'md:text-3xl text-xl mb-2'}>{error.message}</p>
                     <button className={'bg-gray-50 dark:bg-gray-950 dark:text-white p-2'}><Link href="/">Return Home <ArrowOutward/></Link></button>
                 </div>
             </Container>
