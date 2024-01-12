@@ -2,7 +2,11 @@
 
 import {useEffect, useState} from "react";
 
-import {Container} from '@mui/material';
+import Image from 'next/image';
+
+import {Container, ImageList, ImageListItem} from '@mui/material';
+
+import {Android, Inventory} from '@mui/icons-material';
 
 import ScrollToTop from "@/components/ScrollToTop";
 import NavBar from "@/components/Navbar";
@@ -25,7 +29,7 @@ export default function ProjectsPage({params}) {
     return (
         <>
             <NavBar pages={navbarPages}/>
-            <Container maxWidth="xl" className='mt-20'>
+            <Container maxWidth="xl">
                 <ScrollToTop/>
                 <div className={'mb-24'} dangerouslySetInnerHTML={{ __html: project.content }}/>
             </Container>
