@@ -33,9 +33,13 @@ export default function ProjectsPage({params}) {
             <NavBar pages={navbarPages}/>
             <Container maxWidth="xl">
                 <ScrollToTop/>
-                <div className={'mt-16 text-center'}>
-                    <p className={'text-7xl font-bold'}>{project.title}</p>
-                    <p className={'text-xl'}>{project.oneLiner}</p>
+                <div className={'mt-16'}>
+                    <div className='flex justify-center'>
+                        {project.icon ? <Image src={project.icon} alt={'Project Image'} width={300} height={300}
+                                layout={'intrinsic'} className={'-mt-16'}/> : null}
+                    </div>
+                    <p className={'text-7xl font-bold text-center'}>{project.title}</p>
+                    <p className={'text-xl text-center'}>{project.oneLiner}</p>
                     {project.createdAt ? getDate(project.createdAt) : null}
                 </div>
                 {project.images ? <ImageList cols={3} rowHeight={300} className={'mt-16'}>
@@ -90,5 +94,5 @@ const getIcon = (icon) => {
  * @returns {JSX.Element}
  */
 const getDate = (date) => {
-    return <p>{days[new Date(date).getDay()]}, {new Date(date).getDate()}/{new Date(date).getMonth()}/{new Date(date).getFullYear()}</p>
+    return <p className={'text-center'}>{days[new Date(date).getDay()]}, {new Date(date).getDate()}/{new Date(date).getMonth()}/{new Date(date).getFullYear()}</p>
 };
