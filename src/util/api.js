@@ -15,7 +15,7 @@ export async function post(route = '/', data = {}){
     try {
         const request = await axios.post(NEXT_PUBLIC_API_URL + route, data);
 
-        return await request.data;
+        return request.data;
     } catch (e) {
         throw new Error(e.response.statusText);
     }
