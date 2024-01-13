@@ -42,13 +42,14 @@ export default function ProjectsPage({params}) {
                     <p className={'text-xl text-center'}>{project.oneLiner}</p>
                     {project.createdAt ? getDate(project.createdAt) : null}
                 </div>
-                {project.images ? <ImageList cols={3} rowHeight={300} className={'mt-16'}>
-                    {project.images.map((image, index) => (
-                        <ImageListItem key={index}>
-                            <Image src={image} layout={'fill'} objectFit={'cover'} alt={project.title}/>
-                        </ImageListItem>
-                    ))}
-                </ImageList> : null}
+                {project.images ? <div className={'flex justify-center'}>
+                    <ImageList cols={3} className={'mt-16'}>
+                        {project.images.map((image, index) => (
+                            <ImageListItem key={index} sx={{width: 300, height: 300}} cols='1' className={'m-5'}>
+                                <Image src={image} alt={project.title} width='300' height='300'/>
+                            </ImageListItem>
+                        ))}
+                </ImageList></div> : null}
                 <div className={'text-center mt-16'}>
                     {project.content ? project.content.map((content, index) => {
                         return <div id={content.id} key={index}>
