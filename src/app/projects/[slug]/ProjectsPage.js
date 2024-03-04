@@ -50,10 +50,10 @@ export default function ProjectsPage({params}) {
                             </ImageListItem>
                         ))}
                 </ImageList></div> : null}
-                <div className={'text-center mt-16'}>
+                <div className={'mt-16'}>
                     {project.content ? project.content.map((content, index) => {
                         return <div id={content.id} key={index}>
-                            <p className={'text-3xl font-bold mt-5 my-5'}>{content.title}</p>
+                            <p className={'text-3xl font-bold mt-5 my-5 flex justify-center'}>{content.title}</p>
                             <div dangerouslySetInnerHTML={{__html: content.content}}></div>
                         </div>
                     }) : null}
@@ -62,7 +62,7 @@ export default function ProjectsPage({params}) {
                     {project.footer ? <div className={'text-center mt-16'}>
                         <p className={'text-3xl font-bold mt-5 my-5'}>{project.footer.title}</p>
                         { project.footer.content ? project.footer.content.map((content, index) => {
-                            return <div key={index}><a href={content.link} id={content.id} target={'_blank'} className={'my-5 text-xl'}>
+                            return <div key={index} className={'my-3'}><a href={content.link} id={content.id} target={'_blank'} className={'text-xl'}>
                                 {content.title ? getIcon(content.icon) : null} {content.title}
                             </a><br/></div>
                         }) : null }
@@ -95,5 +95,5 @@ const getIcon = (icon) => {
  * @returns {JSX.Element}
  */
 const getDate = (date) => {
-    return <p className={'text-center'}>{days[new Date(date).getDay()]}, {new Date(date).getDate()}/{new Date(date).getMonth()}/{new Date(date).getFullYear()}</p>
+    return <p className={'text-center text-slate-500 mt-3'}>{days[new Date(date).getDay()]}, {new Date(date).getDate()}-{new Date(date).getMonth()}-{new Date(date).getFullYear()}</p>
 };
