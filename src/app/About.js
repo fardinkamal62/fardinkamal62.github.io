@@ -7,7 +7,7 @@ export default function About({oneLine, desc}) {
 
     useEffect(() => {
         setDescription(desc);
-        setOneLiner(oneLine);
+        // setOneLiner(oneLine);
     }, [oneLine, desc]);
 
     return (
