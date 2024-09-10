@@ -6,7 +6,9 @@ export default function Accordions({contents}) {
     return (
         <div>
             {contents.map((content, index) => (
-                <Accordion key={index} className={'text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}>
+                <Accordion key={index}
+                           className={'text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}
+                           defaultExpanded={index === 0}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon className={'dark:text-white'}/>}
                         aria-controls="panel1a-content"
