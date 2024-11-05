@@ -27,4 +27,7 @@ export default function Projects() {
     )
 }
 
-const navbarPages = [];
+const navbarPages = [
+    {title: 'Home', url: '/'},
+    {title: 'Blogs', url: '/blogs'},
+];
