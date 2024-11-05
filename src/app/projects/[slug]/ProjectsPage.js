@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 
 import Image from 'next/image';
 
+import {marked} from "marked";
+
 import {Container, ImageList, ImageListItem} from '@mui/material';
 
 import {Android, GitHub, Inventory, Link} from '@mui/icons-material';
@@ -57,7 +59,7 @@ export default function ProjectsPage({params}) {
                         {project.content ? project.content.map((content, index) => {
                             return <div id={content.id} key={index}>
                                 <p className={'text-4xl font-bold mt-5 my-5 flex'}>{content.title}</p>
-                                <div dangerouslySetInnerHTML={{__html: content.content}}></div>
+                                <div dangerouslySetInnerHTML={{__html: marked.parse(content.content)}}></div>
                             </div>
                         }) : null}
                     </div>
