@@ -25,7 +25,7 @@ export default function Blog({blogs, viewAllBlogs = true, search = false}) {
         <Container className={'mb-24'} id={'blog'}>
             <Box>
                 <div className='flex flex-col items-center justify-center'>
-                    <h1 className={'text-4xl font-bold'}>Blog</h1>
+                    <h1 className={'text-4xl font-bold'}>Blogs</h1>
                 </div>
                 {search ? <Search pageName={'Blogs'} content={blogs} handleChange={handleChange}/> : null}
                 <div className='mt-10 grid grid-cols-1'>

@@ -24,7 +24,7 @@ export default function Project({projects, viewAllProjects = true, search = fals
         <Container className={'mb-24'} id={'project'}>
             <Box>
                 <div className='flex flex-col items-center justify-center'>
-                    <h1 className={'text-4xl font-bold'}>Project</h1>
+                    <h1 className={'text-4xl font-bold'}>Projects</h1>
                 </div>
                 {search ? <Search pageName={'Projects'} content={projects} handleChange={handleChange}/> : null}
                 <div className='mt-10 grid grid-cols-2'>
