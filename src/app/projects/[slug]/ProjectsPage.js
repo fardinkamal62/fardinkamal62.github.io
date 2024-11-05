@@ -30,9 +30,14 @@ export default function ProjectsPage({params}) {
         }).catch(err => console.log(err));
     }, [slug]);
 
+    const secondaryButton = {
+        title: 'Projects',
+        url: '/projects'
+    };
+
     return (
         <>
-            <NavBar pages={navbarPages}/>
+            <NavBar pages={navbarPages} secondaryButton={secondaryButton}/>
             <Container maxWidth="xl">
                 <ScrollToTop/>
                 <div className={'mt-16'}>
