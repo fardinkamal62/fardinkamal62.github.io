@@ -2,6 +2,8 @@
 
 import {useEffect, useState} from "react";
 
+import {marked} from 'marked';
+
 import {Container} from '@mui/material';
 
 import ScrollToTop from "@/components/ScrollToTop";
@@ -35,11 +37,9 @@ export default function ProjectsPage({params}) {
 
                 <div className={'flex justify-center'}>
                     <div className={'mt-16 prose max-w-5xl lg:prose-xl dark:prose-invert'}>
-                        {blog.content ? <div className={'mb-24'} dangerouslySetInnerHTML={{__html: blog.content}}/> : null}
+                        {blog.content ? <div className={'mb-24'} dangerouslySetInnerHTML={{__html: marked.parse(blog.content)}}/> : null}
                     </div>
                 </div>
-
-                {/*<div className={'mb-24'} dangerouslySetInnerHTML={{__html: blog.content}}/>*/}
             </Container>
         </>
     )

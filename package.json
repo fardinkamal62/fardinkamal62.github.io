@@ -1,6 +1,6 @@
 {
   "name": "fardinkamal62.github.io",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.15.0",
     "axios": "^1.6.5",
+    "marked": "^14.1.3",
     "mongodb": "^6.3.0",
     "next": "^14.0.4",
     "next-themes": "^0.2.1",
