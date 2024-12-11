@@ -28,7 +28,7 @@ export default function Blog({blogs, viewAllBlogs = true, search = false}) {
                     <h1 className={'text-4xl font-bold'}>Blogs</h1>
                 </div>
                 {search ? <Search pageName={'Blogs'} content={blogs} handleChange={handleChange}/> : null}
-                <div className='mt-10 grid grid-cols-1'>
+                <div className='mt-10 grid grid-cols-2'>
                     {blogs.length !==0 ? <Cards contents={content}
                             classes={'mx-4 text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}/> : <Skeleton variant="rounded" width={'100%'} height={30} className={'dark:bg-gray-500'}/>}
                 </div>

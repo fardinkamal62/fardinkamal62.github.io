@@ -26,10 +26,15 @@ export default function Home() {
         const homepageData = [
             api.post('/', {
                 _key: 'project:short',
-                limit: 2
+                limit: 2,
+                sort: { precedence: 1 }
             }).then(res => setProjects(res)).catch(err => console.log(err)),
 
-            api.post('/', {_key: 'blog:short', limit: 2}).then(res => setBlogs(res)).catch(err => console.log(err)),
+            api.post('/', {
+                _key: 'blog:short',
+                limit: 2,
+                sort: {precedence: 1}
+            }).then(res => setBlogs(res)).catch(err => console.log(err)),
 
             api.post('/', {_key: "about:tagline"}).then((res) => {
                 setTagline(res[0].content)

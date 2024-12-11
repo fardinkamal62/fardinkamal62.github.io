@@ -3,9 +3,10 @@ import * as database from '@/util/db'
 export async function POST(req) {
     const body = await req.json() || {};
     const limit = parseInt(body.limit) || 10;
+    const sort = body.sort || { _id: 1 };
 
     try {
-        const data = await database.get('data', { _key: body._key}, limit);
+        const data = await database.get('data', { _key: body._key }, limit, sort);
 
         if (data.length === 0) {
             return new Response(JSON.stringify({ error: 'No data found' }), {
