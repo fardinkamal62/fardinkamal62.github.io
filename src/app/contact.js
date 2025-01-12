@@ -1,8 +1,12 @@
 import {Box, Container, Grid} from "@mui/material";
 import {GitHub, LinkedIn, Mail} from "@mui/icons-material";
 import Link from "next/link";
+import {useTheme} from "next-themes";
+
 
 export default function Contact() {
+    const {theme} = useTheme();
+
     return (
         <Container maxWidth="xl" className="mt-5">
             <Box sx={{flexGrow: 1}}>
@@ -20,21 +24,21 @@ export default function Contact() {
                         <Link href="https://codeforces.com/profile/fardinkamal62" target="_blank"
                               rel="noopener noreferrer" className="ml-5">
                             <img
-                                src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/external-codeforces-programming-competitions-and-contests-programming-community-logo-bold-tal-revivo.png"
+                                src={theme === 'dark' ? "https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/FFFFFF/external-codeforces-programming-competitions-and-contests-programming-community-logo-bold-tal-revivo.png": "https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/external-codeforces-programming-competitions-and-contests-programming-community-logo-bold-tal-revivo.png"}
                                 alt="Codeforces" className="text-4xl inline-block align-middle"
                                 title="Codeforces Profile"/>
                         </Link>
                         <Link href="https://leetcode.com/u/fardinkamal62/" target="_blank"
                               rel="noopener noreferrer" className="ml-5">
                             <img
-                                src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-bold-tal-revivo.png"
+                                src={theme === 'dark' ? "https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/FFFFFF/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-bold-tal-revivo.png" : "https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-bold-tal-revivo.png"}
                                 alt="Leetcode" className="text-4xl inline-block align-middle"
                                 title="Leetcode Profile"/>
                         </Link>
                         <Link href="https://www.hackerrank.com/profile/fardinkamal62/" target="_blank"
                               rel="noopener noreferrer" className="ml-5">
                             <img
-                                src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/external-hackerrank-is-a-technology-company-that-focuses-on-competitive-programming-logo-bold-tal-revivo.png"
+                                src={theme === 'dark' ? "https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/FFFFFF/external-hackerrank-is-a-technology-company-that-focuses-on-competitive-programming-logo-bold-tal-revivo.png" : "https://img.icons8.com/external-tal-revivo-bold-tal-revivo/32/external-hackerrank-is-a-technology-company-that-focuses-on-competitive-programming-logo-bold-tal-revivo.png"}
                                 alt="Hackerrank" className="text-4xl inline-block align-middle"
                                 title="Hackerrank Profile"/>
                         </Link>
