@@ -3,6 +3,7 @@ import {Quicksand} from 'next/font/google';
 import './globals.css';
 
 import {ThemeProvider} from "@/components/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const quickSand = Quicksand({subsets: ['latin'], variable: '--font-quick-sand', weight: '400', display: 'swap'})
 
@@ -20,6 +21,7 @@ export default function RootLayout({children}) {
         <body className={`${quickSand.className} bg-white dark:bg-black dark:text-white`}>
             <ThemeProvider attribute={'class'}>
                 {children}
+                <Analytics />
             </ThemeProvider>
         </body>
         </html>
