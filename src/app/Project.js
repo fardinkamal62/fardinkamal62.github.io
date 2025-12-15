@@ -12,7 +12,8 @@ export default function Project({projects, viewAllProjects = true, search = fals
     const handleChange = (event) => {
         const {value} = event.target
         setContent(projects.filter(project => {
-            return project.title.toLowerCase().includes(value.toLowerCase()) || project.technologies.join(' ').toLowerCase().includes(value.toLowerCase())
+            return project.title.toLowerCase().includes(value.toLowerCase()) || 
+                   project.technologies.join(' ').toLowerCase().includes(value.toLowerCase())
         }))
     }
 
@@ -21,21 +22,42 @@ export default function Project({projects, viewAllProjects = true, search = fals
     }, [projects]);
 
     return (
-        <Container className={'mb-24'} id={'project'}>
+        <Container id="project" className={'mb-24'}>
             <Box>
-                <div className='flex flex-col items-center justify-center'>
-                    <h1 className={'text-4xl font-bold'}>Projects</h1>
+                <div className="flex flex-col items-center justify-center mb-5">
+                    <h1 className="text-4xl lg:text-5xl font-bold">Projects</h1>
+                    <p className="text-neutral-600 dark:text-neutral-400 mt-2 text-center max-w-2xl">
+                        Explore my latest work and side projects
+                    </p>
                 </div>
-                {search ? <Search pageName={'Projects'} content={projects} handleChange={handleChange}/> : null}
-                <div className='mt-10 grid grid-cols-2'>
-                    {projects.length !== 0 ? <Cards contents={content} classes={'mx-4 text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}/> : <Skeleton variant="rounded" width={'100%'} height={30} className={'dark:bg-gray-500'}/> }
+                
+                {search ? <Search pageName="Projects" content={projects} handleChange={handleChange}/> : null}
+                
+                <div className="mt-10 grid grid-cols-2 gap-6">
+                    {projects.length !== 0 ? (
+                        <Cards 
+                            contents={content} 
+                            classes="mx-4 text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border"
+                        />
+                    ) : (
+                        <>
+                            <Skeleton variant="rounded" width="100%" height={300} className="dark:bg-neutral-800 rounded-xl"/>
+                            <Skeleton variant="rounded" width="100%" height={300} className="dark:bg-neutral-800 rounded-xl"/>
+                            <Skeleton variant="rounded" width="100%" height={300} className="dark:bg-neutral-800 rounded-xl"/>
+                        </>
+                    )}
                 </div>
-                {viewAllProjects ? <div className={'flex justify-center mt-12'}>
-                    <button
-                        className={'bg-gray-50 dark:bg-gray-950 dark:text-white text-black px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900'}>
-                        <Link href={'/projects'}>View All Projects <ArrowOutward/></Link>
-                    </button>
-                </div> : null}
+                
+                {viewAllProjects ? (
+                    <div className="flex justify-center mt-12">
+                        <Link href="/projects">
+                            <button className="btn-primary flex items-center gap-2">
+                                <span>View All Projects</span>
+                                <ArrowOutward className="w-5 h-5"/>
+                            </button>
+                        </Link>
+                    </div>
+                ) : null}
             </Box>
         </Container>
     )

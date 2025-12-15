@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply text-neutral-800 dark:text-neutral-200 bg-neutral-50 dark:bg-neutral-950;
+        @apply transition-colors duration-300;
+    }
+    
+    h1 {
+        @apply text-4xl lg:text-5xl font-bold tracking-tight mb-4;
+    }
+    
+    h2 {
+        @apply text-3xl lg:text-4xl font-semibold tracking-tight mb-3;
+    }
+    
+    h3 {
+        @apply text-2xl lg:text-3xl font-semibold mb-3;
+    }
+    
+    h4 {
+        @apply text-xl lg:text-2xl font-medium mb-2;
+    }
+    
+    h5 {
+        @apply text-lg lg:text-xl font-medium mb-2;
+    }
+    
+    p {
+        @apply text-base leading-relaxed mb-4;
+    }
+}
+
+@layer components {
+    .section-spacing {
+        @apply py-12 lg:py-16;
+    }
+    
+    .card {
+        @apply bg-white dark:bg-neutral-900 rounded-xl shadow-card dark:shadow-card-dark;
+        @apply border border-neutral-200 dark:border-neutral-800;
+        @apply transition-all duration-300 ease-in-out;
+    }
+    
+    .card-hover {
+        @apply hover:shadow-card-hover hover:scale-[1.02] hover:-translate-y-1;
+    }
+    
+    .btn-primary {
+        @apply bg-primary-600 hover:bg-primary-700 text-white;
+        @apply px-6 py-2.5 rounded-lg font-medium;
+        @apply transition-all duration-200 ease-in-out;
+        @apply shadow-sm hover:shadow-md;
+    }
+    
+    .btn-secondary {
+        @apply bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700;
+        @apply text-neutral-700 dark:text-neutral-300;
+        @apply px-6 py-2.5 rounded-lg font-medium;
+        @apply transition-all duration-200 ease-in-out;
+    }
+    
+    .tech-tag {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full;
+        @apply bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-400;
+        @apply border border-primary-200 dark:border-primary-800;
+    }
+    
+    .icon-wrapper {
+        @apply flex items-center justify-center;
+        @apply w-12 h-12 rounded-lg;
+        @apply bg-primary-100 dark:bg-primary-900/30;
+        @apply text-primary-600 dark:text-primary-400;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}

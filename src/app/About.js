@@ -11,13 +11,35 @@ export default function About({oneLine, desc}) {
     }, [oneLine, desc]);
 
     return (
-        <Container className={'mb-32'} id={'about'}>
+        <Container id="about" className={'mb-32'}>
             <Box>
-                <div className='flex flex-col items-center justify-center'>
-                    <h1 className={'text-4xl font-bold'}>About</h1>
-                    {/*{oneLiner ? <h5 className={'text-xl mt-3'}>{oneLiner}</h5> : <Skeleton variant={'text'} sx={{fontSize: '1rem'}} className={'dark:bg-gray-500 text-xl'} width={'100%'}/>}*/}
+                <div className="flex flex-col items-center justify-center mb-12">
+                    <h1 className="text-4xl lg:text-5xl font-bold">About Me</h1>
+                    <p className="text-neutral-600 dark:text-neutral-400 mt-2 text-center max-w-2xl">
+                        Get to know more about my background and expertise
+                    </p>
                 </div>
-                { description ? <div className={'mt-12'} dangerouslySetInnerHTML={{__html: description}}/> : <div><Skeleton variant="rounded" width={'100%'} height={50} className={'dark:bg-gray-500'}/><br/> <Skeleton variant="rounded" width={'80%'} height={30} className={'dark:bg-gray-500'}/></div> }
+                {description ? (
+                    <div className="card p-8 lg:p-12 mx-auto">
+                        <div 
+                            className="prose prose-lg dark:prose-invert max-w-none
+                                prose-headings:text-neutral-900 dark:prose-headings:text-neutral-100
+                                prose-p:text-neutral-700 dark:prose-p:text-neutral-300
+                                prose-strong:text-neutral-900 dark:prose-strong:text-neutral-100
+                                prose-a:text-primary-600 dark:prose-a:text-primary-400
+                                prose-a:no-underline hover:prose-a:underline"
+                            dangerouslySetInnerHTML={{__html: description}}
+                        />
+                    </div>
+                ) : (
+                    <div className="card p-8 lg:p-12 mx-auto space-y-4">
+                        <Skeleton variant="rounded" width="100%" height={60} className="dark:bg-neutral-800"/>
+                        <Skeleton variant="rounded" width="100%" height={40} className="dark:bg-neutral-800"/>
+                        <Skeleton variant="rounded" width="85%" height={40} className="dark:bg-neutral-800"/>
+                        <Skeleton variant="rounded" width="90%" height={40} className="dark:bg-neutral-800"/>
+                    </div>
+                )}
             </Box>
-        </Container>);
+        </Container>
+    );
 }

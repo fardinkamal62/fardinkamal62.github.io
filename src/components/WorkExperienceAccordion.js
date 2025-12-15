@@ -1,26 +1,52 @@
 import * as React from 'react';
 import {Accordion, AccordionSummary, AccordionDetails, Skeleton} from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import {ExpandMore, Business} from '@mui/icons-material';
 
 export default function Accordions({contents}) {
     return (
-        <div>
+        <div className="space-y-4">
             {contents.map((content, index) => (
-                <Accordion key={index}
-                           className={'text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}
-                           defaultExpanded={index === 0}>
+                <Accordion 
+                    key={index}
+                    className="card !shadow-none border border-neutral-200 dark:border-neutral-800 overflow-hidden"
+                >
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon className={'dark:text-white'}/>}
+                        expandIcon={<ExpandMore className="text-neutral-700 dark:text-neutral-300"/>}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
-                        className={'hover:bg-gray-50 dark:hover:bg-gray-950 '}
+                        className="hover:bg-neutral-50 dark:hover:bg-neutral-900 px-6 py-4"
                     >
-                        <div>{content.title} | {content.company} | {getTimeDiff(content.duration[0], content.duration[1])}</div>
+                        <div className="flex items-center gap-3 w-full">
+                            <div className="icon-wrapper">
+                                <Business className="w-5 h-5"/>
+                            </div>
+                            <div className="flex-1">
+                                <h3 className="font-semibold text-lg text-neutral-900 dark:text-neutral-100">
+                                    {content.title}
+                                </h3>
+                                <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                                    {content.company} • {getTimeDiff(content.duration[0], content.duration[1])}
+                                </p>
+                            </div>
+                        </div>
                     </AccordionSummary>
-                    <AccordionDetails className={'dark:bg-black'}>
-                        {content ? <div dangerouslySetInnerHTML={{__html: content.description}}/> : <div><Skeleton variant="rounded" width={'100%'} height={50} className={'dark:bg-gray-500'}/><br/> <Skeleton variant="rounded" width={'80%'} height={30} className={'dark:bg-gray-500'}/></div>}
+                    <AccordionDetails className="bg-neutral-50/50 dark:bg-neutral-900/50 px-6 py-6">
+                        {content ? (
+                            <div 
+                                className="prose prose-sm dark:prose-invert max-w-none
+                                    prose-p:text-neutral-700 dark:prose-p:text-neutral-300
+                                    prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300"
+                                dangerouslySetInnerHTML={{__html: content.description}}
+                            />
+                        ) : (
+                            <div className="space-y-2">
+                                <Skeleton variant="rounded" width="100%" height={50} className="dark:bg-neutral-800"/>
+                                <Skeleton variant="rounded" width="80%" height={30} className="dark:bg-neutral-800"/>
+                            </div>
+                        )}
                     </AccordionDetails>
-                </Accordion>))}
+                </Accordion>
+            ))}
         </div>
     );
 }
@@ -28,10 +54,24 @@ export default function Accordions({contents}) {
 function getTimeDiff(startDate, endDate) {
     if (!endDate) endDate = new Date()
 
-    const diff = Math.abs(new Date(endDate) - new Date(startDate));
-
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    const months = Math.ceil(days / 30);
-    const years = Math.ceil(months / 12);
-    return months > 12 ? `${years - 1} year ${months - 12} months` : `${months} months`;
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+    
+    // Adjust if months is negative
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+    
+    // Format the output
+    if (years > 0 && months > 0) {
+        return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`;
+    } else if (years > 0) {
+        return `${years} year${years > 1 ? 's' : ''}`;
+    } else {
+        return `${months} month${months > 1 ? 's' : ''}`;
+    }
 }

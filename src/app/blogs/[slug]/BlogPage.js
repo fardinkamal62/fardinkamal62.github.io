@@ -12,7 +12,7 @@ import NavBar from "@/components/Navbar";
 import * as api from "@/util/api";
 import {getDate} from "@/util/utilities";
 
-export default function ProjectsPage({params}) {
+export default function BlogPage({params}) {
     const {slug} = params;
 
     const [navbarPages, setNavbarPages] = useState([]);

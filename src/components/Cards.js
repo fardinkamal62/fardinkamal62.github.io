@@ -8,26 +8,62 @@ export default function Cards({contents, classes}) {
     if (!contents) return (<></>);
 
     return (contents.map((content, index) => (
-            <Card key={index} className={classes}>
-                <CardContent>
-                    <div>
-                        <h2 className={'text-2xl font-bold'}>{content.title}</h2>
-                        <div dangerouslySetInnerHTML={{__html: content.description}}/>
+            <Card key={index} className={`${classes} card card-hover overflow-hidden`}>
+                <CardContent className="p-6">
+                    <div className="mb-4">
+                        <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+                            {content.title}
+                        </h2>
+                        <div 
+                            className="prose prose-sm dark:prose-invert max-w-none mb-4
+                                prose-p:text-neutral-600 dark:prose-p:text-neutral-400
+                                prose-p:leading-relaxed line-clamp-3"
+                            dangerouslySetInnerHTML={{__html: content.description}}
+                        />
                     </div>
+                    
+                    {/* Tech Stack Tags */}
+                    {content.technologies && content.technologies.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-4">
+                            {content.technologies.slice(0, 5).map((tech, idx) => (
+                                <span key={idx} className="tech-tag text-xs">
+                                    {tech}
+                                </span>
+                            ))}
+                            {content.technologies.length > 5 && (
+                                <span className="tech-tag text-xs">
+                                    +{content.technologies.length - 5} more
+                                </span>
+                            )}
+                        </div>
+                    )}
                 </CardContent>
-                <CardActions className={'flex justify-center bottom-0'}>
-                    {content.link ? <button
-                        className={'bg-gray-50 dark:bg-gray-950 dark:text-white text-black px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900'}>
-                        <Link href={content.link} className={'text-blue-500'}>Learn More <ArrowOutward/></Link>
-                    </button> : null}
-                    {content.codeLink ? <button
-                        className={'bg-gray-50 dark:bg-gray-950 dark:text-white text-black px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900'}>
-                        <Link target={'_blank'} href={content.codeLink} className={'text-blue-500'}>Code <Code/></Link>
-                    </button> : null}
-                    {content.liveLink ? <button
-                        className={'bg-gray-50 dark:bg-gray-950 dark:text-white text-black px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900'}>
-                        <Link target={'_blank'} href={content.liveLink}
-                           className={'text-blue-500'}>Live <PowerSettingsNew/></Link></button> : null}
+                
+                <CardActions className="flex flex-wrap gap-2 p-6 pt-0">
+                    {content.link && (
+                        <Link href={content.link} className="flex-1 min-w-fit">
+                            <button className="btn-secondary w-full flex items-center justify-center gap-2 py-2 px-4">
+                                <span>Learn More</span>
+                                <ArrowOutward className="w-4 h-4"/>
+                            </button>
+                        </Link>
+                    )}
+                    {content.codeLink && (
+                        <Link target="_blank" href={content.codeLink} className="flex-1 min-w-fit">
+                            <button className="btn-secondary w-full flex items-center justify-center gap-2 py-2 px-4">
+                                <Code className="w-4 h-4"/>
+                                <span>Code</span>
+                            </button>
+                        </Link>
+                    )}
+                    {content.liveLink && (
+                        <Link target="_blank" href={content.liveLink} className="flex-1 min-w-fit">
+                            <button className="btn-primary w-full flex items-center justify-center gap-2 py-2 px-4">
+                                <PowerSettingsNew className="w-4 h-4"/>
+                                <span>Live Demo</span>
+                            </button>
+                        </Link>
+                    )}
                 </CardActions>
             </Card>
         ))

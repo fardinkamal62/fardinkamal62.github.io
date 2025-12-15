@@ -28,13 +28,13 @@ export default function Blog({blogs, viewAllBlogs = true, search = false}) {
                     <h1 className={'text-4xl font-bold'}>Blogs</h1>
                 </div>
                 {search ? <Search pageName={'Blogs'} content={blogs} handleChange={handleChange}/> : null}
-                <div className='mt-10 grid grid-cols-2'>
+                <div className='mt-10 grid grid-cols-2 gap-6'>
                     {blogs.length !==0 ? <Cards contents={content}
                             classes={'mx-4 text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}/> : <Skeleton variant="rounded" width={'100%'} height={30} className={'dark:bg-gray-500'}/>}
                 </div>
                 {viewAllBlogs ? <div className={'flex justify-center mt-12'}>
                     <button
-                        className={'bg-gray-50 dark:bg-gray-950 dark:text-white text-black px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900'}>
+                        className={'btn-primary flex items-center gap-2'}>
                         <Link href={'/blogs'}>View All Blogs <ArrowOutward/></Link>
                     </button>
                 </div> : null}
