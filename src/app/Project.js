@@ -7,7 +7,7 @@ import Link from "next/link";
 import Search from "@/components/Search";
 
 export default function Project({projects, viewAllProjects = true, search = false}) {
-    const [content, setContent] = useState(projects)
+    const [content, setContent] = useState(projects);
 
     const handleChange = (event) => {
         const {value} = event.target

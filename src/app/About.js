@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Box, Container, Skeleton} from '@mui/material';
+import {marked} from 'marked';
 
 export default function About({oneLine, desc}) {
     // const [oneLiner, setOneLiner] = useState('');
@@ -28,7 +29,7 @@ export default function About({oneLine, desc}) {
                                 prose-strong:text-neutral-900 dark:prose-strong:text-neutral-100
                                 prose-a:text-primary-600 dark:prose-a:text-primary-400
                                 prose-a:no-underline hover:prose-a:underline"
-                            dangerouslySetInnerHTML={{__html: description}}
+                            dangerouslySetInnerHTML={{__html: marked.parse(description)}}
                         />
                     </div>
                 ) : (

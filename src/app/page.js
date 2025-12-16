@@ -25,13 +25,13 @@ export default function Home() {
     useEffect(() => {
         const homepageData = [
             api.get('/', {
-                _key: 'project:short',
+                _key: { $regex: '^project' },
                 limit: 2,
                 sort: { precedence: 1 }
             }).then(res => setProjects(res)).catch(err => console.log(err)),
 
             api.get('/', {
-                _key: 'blog:short',
+                _key: { $regex: '^blog' },
                 limit: 2,
                 sort: {precedence: 1}
             }).then(res => setBlogs(res)).catch(err => console.log(err)),

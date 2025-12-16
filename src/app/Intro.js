@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Contact from './contact';
 import { useEffect, useState } from "react";
 
+import { marked } from 'marked';
+
 export default function Intro({ tag }) {
     const [tagline, setTagline] = useState('');
 
@@ -38,7 +40,7 @@ export default function Intro({ tag }) {
                                 {tagline ? (
                                     <div
                                         className="text-xl lg:text-2xl text-neutral-600 dark:text-neutral-400 leading-relaxed"
-                                        dangerouslySetInnerHTML={{ __html: tagline }}
+                                        dangerouslySetInnerHTML={{ __html: marked.parse(tagline) }}
                                     />
                                 ) : (
                                     <Skeleton

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Accordion, AccordionSummary, AccordionDetails, Skeleton} from '@mui/material';
 import {ExpandMore, Business} from '@mui/icons-material';
+import {marked} from 'marked';
 
 export default function Accordions({contents}) {
     return (
@@ -36,7 +37,7 @@ export default function Accordions({contents}) {
                                 className="prose prose-sm dark:prose-invert max-w-none
                                     prose-p:text-neutral-700 dark:prose-p:text-neutral-300
                                     prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300"
-                                dangerouslySetInnerHTML={{__html: content.description}}
+                                dangerouslySetInnerHTML={{__html: marked.parse(content.description)}}
                             />
                         ) : (
                             <div className="space-y-2">

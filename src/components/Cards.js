@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import {CardActions, CardContent} from '@mui/material';
 import {ArrowOutward, Code, PowerSettingsNew} from "@mui/icons-material";
 import Link from "next/link";
+import { marked } from "marked";
 
 export default function Cards({contents, classes}) {
     if (!contents) return (<></>);
@@ -14,12 +15,12 @@ export default function Cards({contents, classes}) {
                         <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
                             {content.title}
                         </h2>
-                        <div 
+                        {content.description && content.description.length > 0 && <div 
                             className="prose prose-sm dark:prose-invert max-w-none mb-4
                                 prose-p:text-neutral-600 dark:prose-p:text-neutral-400
                                 prose-p:leading-relaxed line-clamp-3"
-                            dangerouslySetInnerHTML={{__html: content.description}}
-                        />
+                            dangerouslySetInnerHTML={{__html: marked.parse(content.description)}}
+                        />}
                     </div>
                     
                     {/* Tech Stack Tags */}

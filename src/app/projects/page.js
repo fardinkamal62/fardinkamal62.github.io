@@ -13,7 +13,7 @@ export default function Projects() {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        api.get('/', {_key: 'project:short', sort: { precedence: 1 }}).then(res => setProjects(res)).catch(err => console.log(err));
+        api.get('/', {_key: { $regex: '^project' }, sort: { precedence: 1 }}).then(res => setProjects(res)).catch(err => console.log(err));
     }, []);
 
     return (

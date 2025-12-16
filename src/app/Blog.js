@@ -8,7 +8,7 @@ import Link from "next/link";
 import Search from "@/components/Search";
 
 export default function Blog({blogs, viewAllBlogs = true, search = false}) {
-    const [content, setContent] = useState(blogs)
+    const [content, setContent] = useState(blogs);
 
     const handleChange = (event) => {
         const {value} = event.target
@@ -27,7 +27,9 @@ export default function Blog({blogs, viewAllBlogs = true, search = false}) {
                 <div className='flex flex-col items-center justify-center'>
                     <h1 className={'text-4xl font-bold'}>Blogs</h1>
                 </div>
+
                 {search ? <Search pageName={'Blogs'} content={blogs} handleChange={handleChange}/> : null}
+                
                 <div className='mt-10 grid grid-cols-2 gap-6'>
                     {blogs.length !==0 ? <Cards contents={content}
                             classes={'mx-4 text-black dark:bg-gray-900 dark:text-white mb-3 dark:border-slate-800 dark:border'}/> : <Skeleton variant="rounded" width={'100%'} height={30} className={'dark:bg-gray-500'}/>}
