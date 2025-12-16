@@ -14,7 +14,7 @@ const { db } = await connectToDatabase();
 export async function get(collection = 'data', query = {}, limit = 10, sort = { _id: 1 }) {
     const projection = {
         _id: 0,
-        _key: 0
+        // _key: 0
     };
 
     try {
@@ -27,12 +27,12 @@ export async function get(collection = 'data', query = {}, limit = 10, sort = { 
 
 export async function set(collection = 'data', data = {}) {
     try {
-        const { key, data } = data;
+        const { key, ...rest } = data;
 
         await db.collection(collection).insertOne(
             {
                 _key: key,
-                ...data,
+                ...rest,
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString()
             });
@@ -40,5 +40,47 @@ export async function set(collection = 'data', data = {}) {
         console.log(e);
         throw new Error('Failed to insert data into database' + e);
     }
+}
 
+/**
+ * @function update
+ * @description update data in database
+ * @param collection{string}
+ * @param query{object}
+ * @param data{object}
+ * @return {Promise<*>}
+ */
+export async function update(collection = 'data', query = {}, data = {}) {
+    try {
+        const result = await db.collection(collection).updateOne(
+            query,
+            {
+                $set: {
+                    ...data,
+                    updatedAt: new Date().toISOString()
+                }
+            }
+        );
+        return result;
+    } catch (e) {
+        console.log(e);
+        throw new Error('Failed to update data in database: ' + e);
+    }
+}
+
+/**
+ * @function remove
+ * @description delete data from database
+ * @param collection{string}
+ * @param query{object}
+ * @return {Promise<*>}
+ */
+export async function remove(collection = 'data', query = {}) {
+    try {
+        const result = await db.collection(collection).deleteOne(query);
+        return result;
+    } catch (e) {
+        console.log(e);
+        throw new Error('Failed to delete data from database: ' + e);
+    }
 }
