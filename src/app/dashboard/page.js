@@ -3,6 +3,7 @@
 import DashboardLayout from '@/components/DashboardLayout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 export default function DashboardPage() {
     const [stats, setStats] = useState({
@@ -69,12 +70,12 @@ export default function DashboardPage() {
                             </div>
                         </div>
                         <div className="bg-gray-50 dark:bg-gray-700 px-5 py-3">
-                            <a
+                            <Link
                                 href="/dashboard/projects"
                                 className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500"
                             >
                                 Manage projects
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -109,12 +110,12 @@ export default function DashboardPage() {
                             </div>
                         </div>
                         <div className="bg-gray-50 dark:bg-gray-700 px-5 py-3">
-                            <a
+                            <Link
                                 href="/dashboard/blogs"
                                 className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500"
                             >
                                 Manage blogs
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -164,18 +165,18 @@ export default function DashboardPage() {
                         Quick Actions
                     </h2>
                     <div className="space-y-3">
-                        <a
+                        <Link
                             href="/dashboard/projects/new"
                             className="block px-4 py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
                         >
                             + Create New Project
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/dashboard/blogs/new"
                             className="block px-4 py-3 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded-md hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
                         >
                             + Create New Blog Post
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

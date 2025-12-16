@@ -4,6 +4,7 @@ import DashboardLayout from '@/components/DashboardLayout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function BlogsPage() {
     const router = useRouter();
@@ -46,12 +47,12 @@ export default function BlogsPage() {
                     <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                         Blogs
                     </h1>
-                    <a
+                    <Link
                         href="/dashboard/blogs/new"
                         className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                         + New Blog
-                    </a>
+                    </Link>
                 </div>
 
                 {loading ? (
@@ -63,12 +64,12 @@ export default function BlogsPage() {
                         <p className="text-gray-500 dark:text-gray-400 mb-4">
                             No blogs yet
                         </p>
-                        <a
+                        <Link
                             href="/dashboard/blogs/new"
                             className="text-blue-600 dark:text-blue-400 hover:underline"
                         >
                             Create your first blog post
-                        </a>
+                        </Link>
                     </div>
                 ) : (
                     <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">

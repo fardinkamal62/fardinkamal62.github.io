@@ -1,19 +1,16 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 export default function DashboardLayout({ children }) {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [authenticated, setAuthenticated] = useState(false);
 
-    useEffect(() => {
-        checkAuth();
-    }, []);
-
-    const checkAuth = async () => {
+    const checkAuth = useCallback(async () => {
         try {
             const response = await axios.get('/api/auth/verify');
             if (response.data.authenticated) {
@@ -27,7 +24,11 @@ export default function DashboardLayout({ children }) {
         } finally {
             setLoading(false);
         }
-    };
+    }, [router]);
+
+    useEffect(() => {
+        checkAuth();
+    }, [checkAuth]);
 
     const handleLogout = async () => {
         try {
@@ -85,30 +86,30 @@ export default function DashboardLayout({ children }) {
                     {/* Sidebar */}
                     <aside className="w-64 flex-shrink-0">
                         <nav className="space-y-1">
-                            <a
+                            <Link
                                 href="/dashboard"
                                 className="block px-4 py-2 text-sm font-medium rounded-md text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                             >
                                 Overview
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="/dashboard/profile"
                                 className="block px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                             >
                                 Profile
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="/dashboard/projects"
                                 className="block px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                             >
                                 Projects
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="/dashboard/blogs"
                                 className="block px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                             >
                                 Blogs
-                            </a>
+                            </Link>
                         </nav>
                     </aside>
 

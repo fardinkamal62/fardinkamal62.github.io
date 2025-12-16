@@ -99,7 +99,7 @@ function InitialContentPlugin({ initialHtml }) {
                 $insertNodes(nodes);
             });
         }
-    }, []);
+    }, [editor, initialHtml]);
 
     return null;
 }
