@@ -24,7 +24,7 @@ export default function ProjectsPage({params}) {
     const [project, setProject] = useState({});
 
     useEffect(() => {
-        api.post('/', {_key: `project:${slug}`}).then(res => {
+        api.get('/', {_key: `project:${slug}`}).then(res => {
             setProject(res[0]);
             setNavbarPages(res[0].navbar);
         }).catch(err => console.log(err));

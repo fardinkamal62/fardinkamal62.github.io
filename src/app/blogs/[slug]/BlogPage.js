@@ -19,7 +19,7 @@ export default function BlogPage({params}) {
     const [blog, setBlog] = useState({});
 
     useEffect(() => {
-        api.post('/', { _key: `blog:${slug}` }).then(res => {
+        api.get('/', { _key: `blog:${slug}` }).then(res => {
             setBlog(res[0]);
             setNavbarPages(res[0].navbar);
         }).catch(err => console.log(err));

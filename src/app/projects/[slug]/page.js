@@ -5,7 +5,7 @@ export async function generateMetadata(props) {
     const params = await props.params;
     const {slug} = params;
 
-    const project = await api.post('/', { _key: `project:${slug}` })
+    const project = await api.get('/', { _key: `project:${slug}` })
     return {
         title: `${project?.[0]?.title || 'Projects'} | Fardin Kamal`,
         description: project?.[0]?.description || 'Projects',

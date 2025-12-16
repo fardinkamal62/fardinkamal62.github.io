@@ -1,6 +1,6 @@
-import {connectToDatabase} from "@/util/mongo";
+import { connectToDatabase } from "@/util/mongo";
 
-const {db} = await connectToDatabase();
+const { db } = await connectToDatabase();
 
 /**
  * @function get
@@ -23,4 +23,22 @@ export async function get(collection = 'data', query = {}, limit = 10, sort = { 
         console.log(e);
         throw new Error('Failed to fetch data from database' + e);
     }
+}
+
+export async function set(collection = 'data', data = {}) {
+    try {
+        const { key, data } = data;
+
+        await db.collection(collection).insertOne(
+            {
+                _key: key,
+                ...data,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            });
+    } catch (e) {
+        console.log(e);
+        throw new Error('Failed to insert data into database' + e);
+    }
+
 }

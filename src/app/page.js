@@ -24,41 +24,41 @@ export default function Home() {
 
     useEffect(() => {
         const homepageData = [
-            api.post('/', {
+            api.get('/', {
                 _key: 'project:short',
                 limit: 2,
                 sort: { precedence: 1 }
             }).then(res => setProjects(res)).catch(err => console.log(err)),
 
-            api.post('/', {
+            api.get('/', {
                 _key: 'blog:short',
                 limit: 2,
                 sort: {precedence: 1}
             }).then(res => setBlogs(res)).catch(err => console.log(err)),
 
-            api.post('/', {_key: "about:tagline"}).then((res) => {
+            api.get('/', {_key: "about:tagline"}).then((res) => {
                 setTagline(res[0].content)
             }).catch((err) => {
                 console.log(err)
             }),
 
-            api.post('', {_key: "about:oneliner"}).then((res) => {
+            api.get('', {_key: "about:oneliner"}).then((res) => {
                 setOneLiner(res[0].content)
             }).catch((err) => {
                 console.log(err)
             }),
 
-            api.post('', {_key: "about:description"}).then((res) => {
+            api.get('', {_key: "about:description"}).then((res) => {
                 setDescription(res[0].content)
             }).catch((err) => {
                 console.log(err)
             }),
 
-            api.post('', {_key: 'about:experience:tools'}).then(res => {
+            api.get('', {_key: 'about:experience:tools'}).then(res => {
                 setToolExperience(res[0])
             }).catch(err => console.log(err)),
 
-            api.post('', {_key: 'about:experience:work'}).then(res => {
+            api.get('', {_key: 'about:experience:work'}).then(res => {
                 setWorkExperience(res[0].content)
             }).catch(err => console.log(err)),
         ]

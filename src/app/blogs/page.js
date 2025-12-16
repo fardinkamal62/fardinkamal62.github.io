@@ -13,7 +13,7 @@ export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-      api.post('/', {_key: 'blog:short', sort: { precedence: 1 }}).then(res => setBlogs(res)).catch(err => console.log(err));
+      api.get('/', {_key: 'blog:short', sort: { precedence: 1 }}).then(res => setBlogs(res)).catch(err => console.log(err));
     }, []);
 
     return (
