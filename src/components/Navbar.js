@@ -30,7 +30,7 @@ function NavBar({pages, secondaryButton}) {
                     <Link href="/" className="text-3xl lg:text-4xl font-bold hover:text-gray-500 dark:hover:text-primary-400 transition-colors">
                         {'{~,~}'}
                     </Link>
-                    {secondaryButton && (
+                    {secondaryButton && secondaryButton.url && (
                         <Link href={secondaryButton.url} className="ml-7">
                             <button className="btn-secondary text-sm lg:text-base">
                                 {secondaryButton.title}
@@ -39,7 +39,7 @@ function NavBar({pages, secondaryButton}) {
                     )}
                     <Box sx={{flexGrow: 100}}></Box>
                     <Box className="hidden md:flex items-center gap-1">
-                        {pages.map((page, index) => (
+                        {pages && pages.length > 0 ? pages.map((page, index) => (
                             <Link 
                                 href={page.url} 
                                 key={index}
@@ -47,12 +47,12 @@ function NavBar({pages, secondaryButton}) {
                             >
                                 {page.title}
                             </Link>
-                        ))}
+                        )) : null}
                     </Box>
                     <div className="ml-4">
                         <ThemeSwitch/>
                     </div>
-                    {pages.length > 0 && <NavbarMenu pages={pages}/>}
+                    {pages && pages.length > 0 && <NavbarMenu pages={pages}/>}
                 </Toolbar>
             </Container>
         </AppBar>
