@@ -16,11 +16,13 @@ export default function NewBlogPage() {
         content: '',
         navbar: [],
         technologies: [],
+        tags: [],
         link: '',
         precedence: 0,
         slug: '',
     });
     const [techInput, setTechInput] = useState('');
+    const [tagInput, setTagInput] = useState('');
     const [navbarInput, setNavbarInput] = useState({ title: '', url: '' });
 
     const handleAddTech = () => {
@@ -37,6 +39,23 @@ export default function NewBlogPage() {
         setBlog({
             ...blog,
             technologies: blog.technologies.filter((_, i) => i !== index)
+        });
+    };
+
+    const handleAddTag = () => {
+        if (tagInput.trim() && !blog.tags.includes(tagInput.trim())) {
+            setBlog({
+                ...blog,
+                tags: [...blog.tags, tagInput.trim()]
+            });
+            setTagInput('');
+        }
+    };
+
+    const handleRemoveTag = (index) => {
+        setBlog({
+            ...blog,
+            tags: blog.tags.filter((_, i) => i !== index)
         });
     };
 
@@ -67,7 +86,7 @@ export default function NewBlogPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSaving(true);
-        
+
         try {
             const slug = blog.slug || generateSlug(blog.title);
             await axios.post('/api/dashboard/blogs', { ...blog, slug });
@@ -260,6 +279,54 @@ export default function NewBlogPage() {
                                                 type="button"
                                                 onClick={() => handleRemoveTech(index)}
                                                 className="ml-2 text-green-600 dark:text-green-300 hover:text-green-800 dark:hover:text-green-100"
+                                            >
+                                                ×
+                                            </button>
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Tags (for filtering)
+                                </label>
+                                <div className="mt-1 flex gap-2">
+                                    <input
+                                        type="text"
+                                        value={tagInput}
+                                        onChange={(e) => setTagInput(e.target.value)}
+                                        onKeyPress={(e) => {
+                                            if (e.key === 'Enter') {
+                                                e.preventDefault();
+                                                handleAddTag();
+                                            }
+                                        }}
+                                        placeholder="Add tag"
+                                        className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={handleAddTag}
+                                        className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                    >
+                                        Add
+                                    </button>
+                                </div>
+                                <div className="mt-2 flex flex-wrap gap-2">
+                                    {blog.tags?.map((tag, index) => (
+                                        <span
+                                            key={index}
+                                            className="inline-flex items-center gap-1 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
+                                        >
+                                            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                                            </svg>
+                                            {tag}
+                                            <button
+                                                type="button"
+                                                onClick={() => handleRemoveTag(index)}
+                                                className="ml-1 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200"
                                             >
                                                 ×
                                             </button>

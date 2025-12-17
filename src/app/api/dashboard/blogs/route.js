@@ -71,7 +71,7 @@ export async function PUT(req) {
         }
         
         const body = await req.json();
-        const { id, title, description, oneLiner, technologies, link, icon, precedence, navbar, content } = body;
+        const { id, title, description, oneLiner, technologies, link, icon, precedence, navbar, content, tags } = body;
         
         await database.update(
             'data',
@@ -85,7 +85,8 @@ export async function PUT(req) {
                 precedence: precedence || 0,
                 oneLiner: oneLiner || '',
                 navbar: navbar || [],
-                content: content || ""
+                content: content || "",
+                tags: tags
             }
         );
         

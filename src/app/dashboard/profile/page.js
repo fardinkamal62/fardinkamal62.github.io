@@ -4,6 +4,7 @@ import DashboardLayout from '@/components/DashboardLayout';
 import RichTextEditor from '@/components/RichTextEditor';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function ProfilePage() {
     const [loading, setLoading] = useState(true);
@@ -105,7 +106,7 @@ export default function ProfilePage() {
                                     required
                                 />
                                 {profile.photo && (
-                                    <img
+                                    <Image
                                         src={profile.photo}
                                         alt="Profile preview"
                                         className="mt-2 h-32 w-32 rounded-full object-cover"

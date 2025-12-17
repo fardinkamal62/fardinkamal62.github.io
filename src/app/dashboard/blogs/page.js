@@ -10,6 +10,9 @@ export default function BlogsPage() {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState([]);
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
+    const [selectedTag, setSelectedTag] = useState(null);
+    const [allTags, setAllTags] = useState([]);
 
     useEffect(() => {
         loadBlogs();
@@ -19,6 +22,14 @@ export default function BlogsPage() {
         try {
             const response = await axios.get('/api/dashboard/blogs');
             setBlogs(response.data);
+            setFilteredBlogs(response.data);
+            
+            // Extract all unique tags
+            const tagsSet = new Set();
+            response.data.forEach(blog => {
+                blog.tags?.forEach(tag => tagsSet.add(tag));
+            });
+            setAllTags(Array.from(tagsSet).sort());
         } catch (error) {
             console.error('Error loading blogs:', error);
         } finally {
@@ -33,10 +44,21 @@ export default function BlogsPage() {
 
         try {
             await axios.delete(`/api/dashboard/blogs?slug=${slug}`);
-            setBlogs(blogs.filter((b) => b.slug !== slug));
+            const updatedBlogs = blogs.filter((b) => b.slug !== slug);
+            setBlogs(updatedBlogs);
+            filterBlogsByTag(selectedTag, updatedBlogs);
         } catch (error) {
             console.error('Error deleting blog:', error);
             alert('Error deleting blog');
+        }
+    };
+
+    const filterBlogsByTag = (tag, blogsList = blogs) => {
+        setSelectedTag(tag);
+        if (!tag) {
+            setFilteredBlogs(blogsList);
+        } else {
+            setFilteredBlogs(blogsList.filter(blog => blog.tags?.includes(tag)));
         }
     };
 
@@ -55,9 +77,58 @@ export default function BlogsPage() {
                     </Link>
                 </div>
 
+                {allTags.length > 0 && (
+                    <div className="mb-6 bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+                        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Filter by Tag:</h3>
+                        <div className="flex flex-wrap gap-2">
+                            <button
+                                onClick={() => filterBlogsByTag(null)}
+                                className={`inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                                    selectedTag === null
+                                        ? 'bg-gray-800 dark:bg-gray-600 text-white'
+                                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                                }`}
+                            >
+                                All ({blogs.length})
+                            </button>
+                            {allTags.map((tag) => (
+                                <button
+                                    key={tag}
+                                    onClick={() => filterBlogsByTag(tag)}
+                                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                                        selectedTag === tag
+                                            ? 'bg-blue-600 text-white'
+                                            : 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30'
+                                    }`}
+                                >
+                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                                    </svg>
+                                    {tag}
+                                    <span className="ml-1 text-xs opacity-75">
+                                        ({blogs.filter(b => b.tags?.includes(tag)).length})
+                                    </span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {loading ? (
                     <div className="flex items-center justify-center h-64">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                    </div>
+                ) : filteredBlogs.length === 0 && selectedTag ? (
+                    <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-12 text-center">
+                        <p className="text-gray-500 dark:text-gray-400 mb-4">
+                            No blogs found with tag &quot;{selectedTag}&quot;
+                        </p>
+                        <button
+                            onClick={() => filterBlogsByTag(null)}
+                            className="text-blue-600 dark:text-blue-400 hover:underline"
+                        >
+                            Clear filter
+                        </button>
                     </div>
                 ) : blogs.length === 0 ? (
                     <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-12 text-center">
@@ -74,7 +145,7 @@ export default function BlogsPage() {
                 ) : (
                     <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
                         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-                            {blogs.map((blog) => (
+                            {filteredBlogs.map((blog) => (
                                 <li
                                     key={blog.slug}
                                     className="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -99,6 +170,21 @@ export default function BlogsPage() {
                                                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
                                                         >
                                                             {tech}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            )}
+                                            {blog.tags && blog.tags.length > 0 && (
+                                                <div className="mt-2 flex flex-wrap gap-2">
+                                                    {blog.tags.map((tag, index) => (
+                                                        <span
+                                                            key={index}
+                                                            className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
+                                                        >
+                                                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                                <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                                                            </svg>
+                                                            {tag}
                                                         </span>
                                                     ))}
                                                 </div>

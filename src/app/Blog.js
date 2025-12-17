@@ -13,7 +13,10 @@ export default function Blog({blogs, viewAllBlogs = true, search = false}) {
     const handleChange = (event) => {
         const {value} = event.target
         setContent(blogs.filter(blog => {
-            return blog.title.toLowerCase().includes(value.toLowerCase()) || blog.technologies.join(' ').toLowerCase().includes(value.toLowerCase())
+            const tagsText = blog.tags ? blog.tags.join(' ').toLowerCase() : '';
+            return blog.title.toLowerCase().includes(value.toLowerCase()) || 
+                   blog.technologies.join(' ').toLowerCase().includes(value.toLowerCase()) ||
+                   tagsText.includes(value.toLowerCase())
         }))
     }
 

@@ -27,11 +27,7 @@ export default function EditProjectPage() {
         slug: ''
     });
 
-    useEffect(() => {
-        loadProject();
-    }, [slug]);
-
-    const loadProject = async () => {
+    const loadProject = useCallback(async () => {
         try {
             const response = await axios.get('/api/dashboard/projects');
             const foundProject = response.data.find((p) => p.slug === slug);
@@ -52,7 +48,11 @@ export default function EditProjectPage() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [slug, router]);
+
+    useEffect(() => {
+        loadProject();
+    }, [loadProject]);
 
     const handleAddContentSection = () => {
         const id = prompt('Enter section ID (e.g., story, learning):');
