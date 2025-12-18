@@ -162,18 +162,6 @@ export default function BlogsPage() {
                                             <p className="mt-1 text-xs text-gray-400">
                                                 Precedence: {blog.precedence || 0}
                                             </p>
-                                            {blog.technologies && (
-                                                <div className="mt-2 flex flex-wrap gap-2">
-                                                    {blog.technologies.map((tech, index) => (
-                                                        <span
-                                                            key={index}
-                                                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
-                                                        >
-                                                            {tech}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            )}
                                             {blog.tags && blog.tags.length > 0 && (
                                                 <div className="mt-2 flex flex-wrap gap-2">
                                                     {blog.tags.map((tag, index) => (

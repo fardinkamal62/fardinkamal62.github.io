@@ -244,52 +244,7 @@ export default function NewBlogPage() {
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    Technologies/Tags
-                                </label>
-                                <div className="mt-1 flex gap-2">
-                                    <input
-                                        type="text"
-                                        value={techInput}
-                                        onChange={(e) => setTechInput(e.target.value)}
-                                        onKeyPress={(e) => {
-                                            if (e.key === 'Enter') {
-                                                e.preventDefault();
-                                                handleAddTech();
-                                            }
-                                        }}
-                                        placeholder="Add tag"
-                                        className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                                    />
-                                    <button
-                                        type="button"
-                                        onClick={handleAddTech}
-                                        className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-                                    >
-                                        Add
-                                    </button>
-                                </div>
-                                <div className="mt-2 flex flex-wrap gap-2">
-                                    {blog.technologies?.map((tech, index) => (
-                                        <span
-                                            key={index}
-                                            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
-                                        >
-                                            {tech}
-                                            <button
-                                                type="button"
-                                                onClick={() => handleRemoveTech(index)}
-                                                className="ml-2 text-green-600 dark:text-green-300 hover:text-green-800 dark:hover:text-green-100"
-                                            >
-                                                ×
-                                            </button>
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    Tags (for filtering)
+                                    Tags
                                 </label>
                                 <div className="mt-1 flex gap-2">
                                     <input
