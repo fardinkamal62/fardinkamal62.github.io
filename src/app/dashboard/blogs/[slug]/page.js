@@ -1,11 +1,11 @@
 'use client';
 
 import DashboardLayout from '@/components/DashboardLayout';
-import RichTextEditor from '@/components/RichTextEditor';
 import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
+import { marked } from 'marked';
 
 export default function EditBlogPage() {
     const router = useRouter();
@@ -167,14 +167,28 @@ export default function EditBlogPage() {
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                    Full Content (HTML) *
+                                    Full Content (Markdown) *
                                 </label>
-                                <RichTextEditor
-                                    value={blog.content}
-                                    onChange={(content) =>
-                                        setBlog({ ...blog, content })
-                                    }
-                                />
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                    <div>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Editor</p>
+                                        <textarea
+                                            value={blog.content}
+                                            onChange={(e) => setBlog({ ...blog, content: e.target.value })}
+                                            rows={20}
+                                            placeholder="Write your blog content in markdown..."
+                                            className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-mono"
+                                            required
+                                        />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Preview</p>
+                                        <div 
+                                            className="prose prose-sm dark:prose-invert max-w-none p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-800 min-h-[500px] overflow-auto"
+                                            dangerouslySetInnerHTML={{ __html: blog.content ? marked.parse(blog.content) : '<p class="text-gray-400">Preview will appear here...</p>' }}
+                                        />
+                                    </div>
+                                </div>
                             </div>
 
                             <div>
