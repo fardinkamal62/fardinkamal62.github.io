@@ -34,8 +34,18 @@ export default function NavbarMenu({pages}) {
                 open={open}
                 onClose={handleClose}>
                 {pages.map((page, index) => (
-                    <MenuItem key={index} onClick={handleClose}>
-                        <Link href={page.url} key={index}>{page.title}</Link>
+                    <MenuItem 
+                        key={index} 
+                        onClick={handleClose}
+                        className={page.title === 'Principles' ? 'bg-blue-50 dark:bg-blue-900/20' : ''}
+                    >
+                        <Link 
+                            href={page.url} 
+                            key={index}
+                            className={page.title === 'Principles' ? 'text-primary-600 dark:text-primary-400 font-medium' : ''}
+                        >
+                            {page.title}
+                        </Link>
                     </MenuItem>
                 ))}
             </Menu>

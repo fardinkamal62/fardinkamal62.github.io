@@ -90,5 +90,6 @@ const navbarPages = [
     {title: 'About', url: '#about'},
     {title: 'Experience', url: '#experience'},
     {title: 'Project', url: '#project'},
-    {title: 'Blog', url: '#blog'}
+    {title: 'Blog', url: '#blog'},
+    {title: 'Principles', url: '/principles'}
 ];
