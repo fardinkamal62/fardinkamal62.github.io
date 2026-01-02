@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
-import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
+import { GitHub, LinkedIn, Mail, EmojiEvents } from "@mui/icons-material";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -12,6 +12,7 @@ export default function Contact() {
         { href: "https://www.linkedin.com/in/fardinkamal62/", icon: LinkedIn, title: "LinkedIn Profile", label: "LinkedIn" },
         { href: "mailto:fardinkamal62@protonmail.ch", icon: Mail, title: "Email", label: "Email" },
         { href: "https://github.com/fardinkamal62", icon: GitHub, title: "Github Profile", label: "GitHub" },
+        { href: "https://www.bragdocs.com/@fardinkamal62", icon: EmojiEvents, title: "Bragdocs Profile", label: "Bragdocs" },
     ];
 
     return (
