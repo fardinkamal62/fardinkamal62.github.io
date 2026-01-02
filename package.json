@@ -1,6 +1,6 @@
 {
   "name": "fardinkamal62.github.io",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": false,
   "scripts": {
     "dev": "next dev",
