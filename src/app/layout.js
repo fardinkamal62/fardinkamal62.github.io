@@ -14,7 +14,7 @@ export const metadata = {
     openGraph: {
         title: 'Fardin Kamal | Software Engineer',
         description: 'Official website of Fardin Kamal. Explore projects, blogs, experience, and achievements.',
-        url: 'https://fardinkamal62.vercel.app',
+        url: 'https://fardinkamal.com',
         siteName: 'Fardin Kamal',
         images: [
             {
