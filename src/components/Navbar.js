@@ -1,29 +1,17 @@
 'use client';
 
-import {AppBar, Box, Container, createTheme, Toolbar} from '@mui/material';
+import {AppBar, Box, Container, Toolbar} from '@mui/material';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import NavbarMenu from './NavbarMenu';
 import Link from "next/link";
 
-const navbarTheme = createTheme({
-    components: {
-        MuiAppBar: {
-            styleOverrides: {
-                colorPrimary: {
-                    backgroundColor: "rgb(249 250 251/var(--tw-bg-opacity))"
-                }
-            }
-        }
-    }
-});
-
 function NavBar({pages, secondaryButton}) {
     return (
-        <AppBar 
-            position="sticky" 
-            className="bg-white/80 dark:bg-neutral-950/80 backdrop-blur-lg border-b border-neutral-200 dark:border-neutral-800" 
-            sx={{boxShadow: 'none'}}
-            theme={navbarTheme}
+        <AppBar
+            position="sticky"
+            color="inherit"
+            className="bg-white/80 dark:bg-neutral-950/80 backdrop-blur-lg border-b border-neutral-200 dark:border-neutral-800"
+            sx={{boxShadow: 'none', backgroundColor: 'rgb(249 250 251 / var(--tw-bg-opacity, 1))'}}
         >
             <Container maxWidth="xl">
                 <Toolbar className="text-neutral-700 dark:text-neutral-400 py-2">
